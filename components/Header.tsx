@@ -12,12 +12,15 @@ const Header: NextPage = () => {
   const HeaderStyled = styled.div`
     position: fixed;
     display: flex;
+    top: 0px;
     align-items: center;
     flex-flow: row wrap;
     justify-content: space-between;
     width: 100%;
     padding: 15px;
     background: #b60f25;
+    box-shadow: 0px 0px 4px #b60f25;
+    z-index: 1;
     .left {
       display: flex;
       .logo {
@@ -36,6 +39,10 @@ const Header: NextPage = () => {
           margin-left: 40px;
           cursor: pointer;
           font-size: 14px;
+          transition: 300ms all;
+        }
+        .link:hover {
+          transform: scale(1.1, 1.1);
         }
       }
     }
@@ -53,9 +60,13 @@ const Header: NextPage = () => {
         margin-right: 10px;
         border-radius: 999px;
         cursor: pointer;
+        transition: 300ms all;
         * {
           width: 100%;
         }
+      }
+      .socialMedia:hover {
+        box-shadow: 0px 0px 4px #b60f25 inset;
       }
     }
   `
