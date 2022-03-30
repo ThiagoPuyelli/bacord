@@ -23,9 +23,10 @@ const Presentation: NextPage = () => {
         background: white;
         color: #980a24;
         padding: 15px;
-        border-radius: 20px;
+        border-radius: 40px;
         border: none;
         font-weight: bold;
+        width: 250px;
         transition: 300ms all;
         cursor: pointer;
       }
