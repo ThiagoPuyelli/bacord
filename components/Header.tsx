@@ -7,6 +7,7 @@ import instagram from '../public/img/instagram.png'
 import linkedin from '../public/img/linkedin.png'
 import logo from '../public/img/logo_bacord.png'
 import Link from 'next/link'
+import * as Scroll from 'react-scroll'
 
 const Header: NextPage = () => {
   const HeaderStyled = styled.div`
@@ -70,6 +71,11 @@ const Header: NextPage = () => {
       }
     }
   `
+
+  const scroll = Scroll.animateScroll
+  
+  const scrollTo = (position: number) => scroll.scrollTo(position)
+  
   return (
     <HeaderStyled>
       <div className="left">
@@ -77,12 +83,12 @@ const Header: NextPage = () => {
           <Image src={logo} alt='Logo of bacord'/>
         </div>
         <ul className='links'>
-          <li className='link'>HOME</li>
-          <li className='link'>ABOUT US</li>
-          <li className='link'>GAMES</li>
-          <li className='link'>WORK WITH US</li>
+          <li className='link' onClick={() => scrollTo(0)}>HOME</li>
+          <li className='link' onClick={() => scrollTo(400)}>ABOUT US</li>
+          <li className='link' onClick={() => scrollTo(1120)}>GAMES</li>
+          <li className='link' onClick={() => scrollTo(3500)}>WORK WITH US</li>
           <li className='link'>BLOG</li>
-          <li className='link'>CONTACT</li>
+          <li className='link' onClick={() => scrollTo(6000)}>CONTACT</li>
         </ul>
       </div>
       <div className="right">
