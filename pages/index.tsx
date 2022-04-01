@@ -3,6 +3,8 @@ import About from '../components/About'
 import Presentation from '../components/Presentation'
 import Games from '../components/Games'
 import Work from '../components/Work'
+import Contact from '../components/Contact'
+import Footer from '../components/Footer'
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +13,8 @@ const Home: NextPage = () => {
       <About />
       <Games />
       <Work />
+      <Contact />
+      <Footer />
     </div>
   )
 }

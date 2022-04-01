@@ -7,11 +7,6 @@ const Work: NextPage = () => {
     flex-flow: column wrap;
     align-items: center;
     .titleWork {
-      margin: 30px;
-      color: var(--title);
-      font-family: comix;
-      font-size: 20px;
-      letter-spacing: 4px;
       margin-top: 90px;
     }
     .content {
@@ -58,7 +53,7 @@ const Work: NextPage = () => {
 
   return (
     <WorkStyled>
-      <h1 className='titleWork'>WORK WITH US</h1>
+      <h1 className='titleComix titleWork'>WORK WITH US</h1>
       <div className="content">
         <p className="info">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ab suscipit tempora fuga natus aliquam nesciunt delectus accusamus impedit reiciendis sit debitis, hic neque quas qui commodi voluptatum corporis magnam consequatur quis eos? Alias, cumque ab. Vero praesentium magnam pariatur consectetur enim, id repellendus aliquam libero amet quas architecto voluptatem explicabo voluptates. Soluta consequatur molestias vel nisi reprehenderit ad animi iure assumenda deleniti doloribus aspernatur, dicta consectetur ratione distinctio explicabo aperiam optio, maxime quo doloremque iusto adipisci. Repudiandae, nesciunt soluta!
