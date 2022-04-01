@@ -12,6 +12,7 @@
   padding: 0px;
   box-sizing: border-box;
   margin: 0px;
+  --title: #980a24;
 }
 
 html,

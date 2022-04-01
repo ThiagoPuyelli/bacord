@@ -9,7 +9,8 @@ const About: NextPage = () => {
     margin-top: 40px;
     .titleAbout {
       font-family: comix;
-      color: #980a24;
+      color: var(--title);
+      letter-spacing: 4px;
     }
     .contentAbout {
       display: flex;
