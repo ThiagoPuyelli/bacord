@@ -6,9 +6,169 @@ import jazzy from '../../public/img/Jazzy_Logo.png'
 import quick from '../../public/img/Quick_Logo.png'
 import spin from '../../public/img/Spin_Logo.png'
 import windy from '../../public/img/Windy_ico.png'
+import buttonLeft from '../../public/img/left-arrow.png'
+import buttonRight from '../../public/img/right-arrow.png'
+import { useState } from 'react'
 import Image from 'next/image'
 
 const Logos: NextPage = () => {
+  const LogosStyled = styled.div`
+    margin-top: 100px;
+    overflow: hidden;
+    .carousel {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      width: 100%;
+      overflow: hidden;
+      .contentImages {
+        transition: 600ms all;
+        width: 10000px;
+        display: flex;
+        margin-left: 155%;
+        .contentGame {
+          display: flex;
+          flex-flow: column wrap;
+          align-items: center;
+          transition: 300ms all;
+        }
+        .contentGame.hide {
+          opacity: 0.8;
+        }
+        .imageLogo {
+          width: 300px !important;
+          transition: 300ms all;
+          border-radius: 100%;
+          overflow: hidden;
+        }
+        .imageLogo.other {
+          margin-left: 120px;
+          transition: 300ms all;
+          border-radius: 100%;
+          overflow: hidden;
+        }
+        .imageLogo.first.hide,
+        .imageLogo.other.hide {
+          opacity: 0.8;
+        }
+        .nameLogo {
+          text-align: center;
+          width: 100%;
+          color: var(--title);
+          font-size: 17px;
+          letter-spacing: 1px;
+        }
+        .nameLogo.other {
+          padding-left: 120px;
+        }
+      }
+      .button {
+        position: absolute;
+        margin-top: 120px;
+        background: transparent;
+        font-size: 20px;
+        border: none;
+        width: 70px;
+        cursor: pointer;
+        transition: 300ms all;
+        z-index: 1;
+      }
+      .button:hover {
+        transform: scale(1.2, 1.2);
+      }
+      .button.left {
+        left: 30%;
+      }
+      .button.right {
+        right: 30%;
+      }
+    }
+  `
+  let position = 0
+  const moveImages = (direction: 'left'|'right') => {
+    const carousel: HTMLElement|null = document.querySelector('.contentImages')
+    if (carousel) {
+      const image1: Element|null = document.querySelectorAll('.contentImages .contentGame')[position]
+      const image2: Element|null = document.querySelectorAll('.contentImages .contentGame')[position + 1]
+      const image3: Element|null = document.querySelectorAll('.contentImages .contentGame')[position - 1]
+      console.log(image1, image2, image3)
+      if (direction === 'right') {
+        if (!carousel.style.marginRight) {
+          carousel.style.marginRight = '840px'
+        } else {
+          carousel.style.marginRight = (parseInt(carousel.style.marginRight) + 840) + 'px'
+        }
+        position += 1
+        if (image1 && image2)  {
+          image1.className = image1.className + ' hide'
+          const imageSplit = image2.className.split(' ')
+          image2.className = imageSplit[0]
+        }
+      } else {
+        if (image1 && image3) {
+          image1.className = image1.className + ' hide'
+          const imageSplit = image3.className.split(' ')
+          image3.className = imageSplit[0]
+        }
+        position -= 1
+        carousel.style.marginRight = (parseInt(carousel.style.marginRight) + - 840) + "px"
+      }
+    }
+  }
+  
+  return (
+    <LogosStyled>
+      <div className='carousel'>
+        <div className='button left'>
+          <Image src={buttonLeft} alt='Button left' onClick={() => moveImages('left')} />
+        </div>
+        <div className="contentImages">
+          <div className="contentGame">
+            <div className="imageLogo first">
+              <Image src={quick} alt='juego' />
+            </div>
+            <p className='nameLogo'>Quick</p>
+          </div>
+          <div className="contentGame hide">
+            <div className="imageLogo other">
+              <Image src={fists} alt='juego' />
+            </div>
+            <p className='nameLogo other'>Fists</p>
+          </div>
+          <div className="contentGame hide">
+            <div className="imageLogo other">
+              <Image src={jazzy} alt='juego' />
+            </div>
+            <p className='nameLogo other'>Jazzy</p>
+          </div>
+          <div className="contentGame hide">
+            <div className="imageLogo other">
+              <Image src={bomberman} alt='juego' />
+            </div>
+            <p className='nameLogo other'>Bomberman</p>
+          </div>
+          <div className="contentGame hide">
+            <div className="imageLogo other">
+              <Image src={spin} alt='juego' />
+            </div>
+            <p className='nameLogo other'>Spin</p>
+          </div>
+          <div className="contentGame hide">
+            <div className="imageLogo other">
+              <Image src={windy} alt='juego' />
+            </div>
+            <p className='nameLogo other'>Windy</p>
+          </div>
+        </div>
+        <div className="button right">
+          <Image src={buttonRight} onClick={() => moveImages('right')} alt='Button right' />
+        </div>
+      </div>
+    </LogosStyled>
+  )
+}
+
+/*const Logos: NextPage = () => {
   const LogosStyled = styled.div`
     display: flex;
     flex-flow: row wrap;
@@ -39,6 +199,6 @@ const Logos: NextPage = () => {
       </div>
     </LogosStyled>
   )
-}
+}*/
 
 export default Logos
