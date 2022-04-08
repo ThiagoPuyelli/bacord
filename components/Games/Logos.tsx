@@ -1,204 +1,126 @@
-import type { NextPage } from 'next'
 import styled from '@emotion/styled'
-import bomberman from '../../public/img/bomberman 1.png'
-import fists from '../../public/img/Fists_logo.jpg'
-import jazzy from '../../public/img/Jazzy_Logo.png'
-import quick from '../../public/img/Quick_Logo.png'
-import spin from '../../public/img/Spin_Logo.png'
-import windy from '../../public/img/Windy_ico.png'
+import Image from 'next/image'
 import buttonLeft from '../../public/img/left-arrow.png'
 import buttonRight from '../../public/img/right-arrow.png'
-import { useState } from 'react'
-import Image from 'next/image'
 
-const Logos: NextPage = () => {
+type Logo = {
+  image: any,
+  name: string
+}
+
+const Logos = ({logos}: { logos: Logo[]}) => {
   const LogosStyled = styled.div`
-    margin-top: 100px;
     overflow: hidden;
+    height: 270px;
+    margin-top: 80px;
+    .button {
+      position: absolute;
+      margin-top: 80px;
+      background: transparent;
+      font-size: 20px;
+      border: none;
+      width: 70px;
+      cursor: pointer;
+      transition: 300ms all;
+      z-index: 2;
+    }
+    .button:hover {
+      transform: scale(1.1, 1.1);
+    }
+    .button.left {
+      left: 1%;
+    }
+    .button.right {
+      right: 1%;
+      margin-top: -150px;
+    }
     .carousel {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
       width: 100%;
       overflow: hidden;
-      .contentImages {
-        transition: 600ms all;
-        width: 10000px;
+      transition: 500ms all;
+      .contentLogos {
         display: flex;
-        margin-left: 155%;
+        width: 10000px;
+        transition: 500ms all;
         .contentGame {
+          width: 200px;
           display: flex;
           flex-flow: column wrap;
           align-items: center;
-          transition: 300ms all;
+          margin-left: 60px;
+          .imageLogo {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 100%;
+            * {
+              transform: scale(1.05, 1.05);
+            }
+          }
+          .nameLogo {
+            color: var(--title);
+            text-transform: uppercase;
+            font-family: comix;
+            font-size: 14px;
+            margin-top: 10px;
+          }
         }
-        .contentGame.hide {
-          opacity: 0.8;
-        }
-        .imageLogo {
-          width: 300px !important;
-          transition: 300ms all;
-          border-radius: 100%;
-          overflow: hidden;
-        }
-        .imageLogo.other {
-          margin-left: 120px;
-          transition: 300ms all;
-          border-radius: 100%;
-          overflow: hidden;
-        }
-        .imageLogo.first.hide,
-        .imageLogo.other.hide {
-          opacity: 0.8;
-        }
-        .nameLogo {
-          text-align: center;
-          width: 100%;
-          color: var(--title);
-          font-size: 17px;
-          letter-spacing: 1px;
-        }
-        .nameLogo.other {
-          padding-left: 120px;
-        }
-      }
-      .button {
-        position: absolute;
-        margin-top: 120px;
-        background: transparent;
-        font-size: 20px;
-        border: none;
-        width: 70px;
-        cursor: pointer;
-        transition: 300ms all;
-        z-index: 1;
-      }
-      .button:hover {
-        transform: scale(1.2, 1.2);
-      }
-      .button.left {
-        left: 30%;
-      }
-      .button.right {
-        right: 30%;
       }
     }
   `
-  let position = 0
-  const moveImages = (direction: 'left'|'right') => {
-    const carousel: HTMLElement|null = document.querySelector('.contentImages')
-    if (carousel) {
-      const image1: Element|null = document.querySelectorAll('.contentImages .contentGame')[position]
-      const image2: Element|null = document.querySelectorAll('.contentImages .contentGame')[position + 1]
-      const image3: Element|null = document.querySelectorAll('.contentImages .contentGame')[position - 1]
-      console.log(image1, image2, image3)
+
+  let position = 1
+
+  const moveImages = (direction: 'right'|'left') => {
+    const contentLogos: HTMLElement|null = document.querySelector('.contentLogos')
+    if (contentLogos) {
       if (direction === 'right') {
-        if (!carousel.style.marginRight) {
-          carousel.style.marginRight = '840px'
-        } else {
-          carousel.style.marginRight = (parseInt(carousel.style.marginRight) + 840) + 'px'
-        }
-        position += 1
-        if (image1 && image2)  {
-          image1.className = image1.className + ' hide'
-          const imageSplit = image2.className.split(' ')
-          image2.className = imageSplit[0]
+        if (position < logos.length - 4) {
+          if (!contentLogos.style.marginLeft) {
+            contentLogos.style.marginLeft = '-260px'
+          } else {
+            contentLogos.style.marginLeft = (parseInt(contentLogos.style.marginLeft) - 260) + 'px'
+          }
+          position += 1
         }
       } else {
-        if (image1 && image3) {
-          image1.className = image1.className + ' hide'
-          const imageSplit = image3.className.split(' ')
-          image3.className = imageSplit[0]
-        }
-        position -= 1
-        carousel.style.marginRight = (parseInt(carousel.style.marginRight) + - 840) + "px"
+        if (position > 1){
+          contentLogos.style.marginLeft = (parseInt(contentLogos.style.marginLeft) + 260) + 'px'
+          position -= 1
+        } 
       }
     }
   }
-  
   return (
     <LogosStyled>
-      <div className='carousel'>
-        <div className='button left'>
-          <Image src={buttonLeft} alt='Button left' onClick={() => moveImages('left')} />
+      <div className="carousel">
+        <button className="button left" onClick={() => moveImages('left')}>
+          <Image src={buttonLeft} alt='Button Left' />
+        </button>
+        <div className="contentLogos">
+          {logos.map(((logo: Logo, i) => {
+            return (
+              <div className="contentGame" key={logo.name + i}>
+                <div className="imageLogo">
+                  <Image src={logo.image} />
+                </div>
+                <p className="nameLogo">{logo.name}</p>
+              </div>
+            )
+          }))}
         </div>
-        <div className="contentImages">
-          <div className="contentGame">
-            <div className="imageLogo first">
-              <Image src={quick} alt='juego' />
-            </div>
-            <p className='nameLogo'>Quick</p>
-          </div>
-          <div className="contentGame hide">
-            <div className="imageLogo other">
-              <Image src={fists} alt='juego' />
-            </div>
-            <p className='nameLogo other'>Fists</p>
-          </div>
-          <div className="contentGame hide">
-            <div className="imageLogo other">
-              <Image src={jazzy} alt='juego' />
-            </div>
-            <p className='nameLogo other'>Jazzy</p>
-          </div>
-          <div className="contentGame hide">
-            <div className="imageLogo other">
-              <Image src={bomberman} alt='juego' />
-            </div>
-            <p className='nameLogo other'>Bomberman</p>
-          </div>
-          <div className="contentGame hide">
-            <div className="imageLogo other">
-              <Image src={spin} alt='juego' />
-            </div>
-            <p className='nameLogo other'>Spin</p>
-          </div>
-          <div className="contentGame hide">
-            <div className="imageLogo other">
-              <Image src={windy} alt='juego' />
-            </div>
-            <p className='nameLogo other'>Windy</p>
-          </div>
-        </div>
-        <div className="button right">
-          <Image src={buttonRight} onClick={() => moveImages('right')} alt='Button right' />
+        <button className="button right" onClick={() => moveImages('right')}>
+          <Image src={buttonRight} alt='Button Right' />
+        </button>
+        <div className="pages">
+          {logos.map((logo: Logo, i) => {
+            if (i < logos.length - 4) {
+              return <div className={"page page" + i}></div>
+            }
+          })}
         </div>
       </div>
-    </LogosStyled>
+    </LogosStyled>   
   )
 }
-
-/*const Logos: NextPage = () => {
-  const LogosStyled = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    .imageLogos {
-      width: ${100 / 3}%;
-      margin: 0px;
-    }
-  `
-  return (
-    <LogosStyled>
-      <div className="imageLogos">
-        <Image src={spin} alt='spin image' />
-      </div>
-      <div className="imageLogos">
-        <Image src={windy} alt='windy image' />
-      </div>
-      <div className="imageLogos">
-        <Image src={jazzy} alt='jazzy image' />
-      </div>
-      <div className="imageLogos">
-        <Image src={quick} alt='quick image' />
-      </div>
-      <div className="imageLogos">
-        <Image src={fists} alt='fists image' />
-      </div>
-      <div className="imageLogos">
-        <Image src={bomberman} alt='Bomberman image' />
-      </div>
-    </LogosStyled>
-  )
-}*/
 
 export default Logos

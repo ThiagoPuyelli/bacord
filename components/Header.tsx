@@ -49,7 +49,6 @@ const Header: NextPage = () => {
     }
     
     .right {
-      width: 40%;
       display: flex;
       flex-flow: row wrap;
       justify-content: right;

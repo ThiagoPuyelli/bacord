@@ -11,7 +11,6 @@ const Pow: NextPage = () => {
     padding: 100px;
     background: #f70298;
     width: 100%;
-    margin-top: 0px;
     .contentPow {
       display: flex;
       flex-flow: column wrap;
