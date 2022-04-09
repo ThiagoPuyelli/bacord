@@ -48,10 +48,14 @@ const Logos = ({logos}: { logos: Logo[]}) => {
           flex-flow: column wrap;
           align-items: center;
           margin-left: 60px;
+          cursor: pointer;
           .imageLogo {
+            box-shadow: 0px 0px 4px var(--title);
             width: 100%;
             overflow: hidden;
             border-radius: 100%;
+            transition: 300ms all;
+            border: 3px solid transparent;
             * {
               transform: scale(1.05, 1.05);
             }
@@ -63,6 +67,9 @@ const Logos = ({logos}: { logos: Logo[]}) => {
             font-size: 14px;
             margin-top: 10px;
           }
+        }
+        .contentGame:hover .imageLogo {
+          border: 3px solid var(--title);
         }
       }
     }
@@ -114,7 +121,7 @@ const Logos = ({logos}: { logos: Logo[]}) => {
         <div className="pages">
           {logos.map((logo: Logo, i) => {
             if (i < logos.length - 4) {
-              return <div className={"page page" + i}></div>
+              return <div className={"page page" + i} key={'page' + i}></div>
             }
           })}
         </div>

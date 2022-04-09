@@ -38,7 +38,7 @@ const Maki: NextPage = () =>  {
     }
   `
   return (
-    <MakiStyled>
+    <MakiStyled onScroll={(e) => console.log(e)}>
       <div className="imageBottom">
         <Image src={makiBottom} />
       </div>

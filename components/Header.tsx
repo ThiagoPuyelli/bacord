@@ -74,9 +74,12 @@ const Header: NextPage = () => {
   const scroll = Scroll.animateScroll
   
   const scrollTo = (position: number) => scroll.scrollTo(position)
+  const changeColorScroll = (e: any) => {
+    console.log(e)
+  }
   
   return (
-    <HeaderStyled>
+    <HeaderStyled onScroll={(e) => changeColorScroll(e)}>
       <div className="left">
         <div className="logo">
           <Image src={logo} alt='Logo of bacord'/>
