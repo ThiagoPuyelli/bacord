@@ -47,6 +47,34 @@ const Work: NextPage = () => {
         border: none;
         box-shadow: 0px 0px 4px var(--title);
         cursor: pointer;
+        transition: 300ms all;
+      }
+      .applyButton:hover {
+        background: #570312;
+      }
+    }
+
+    @media (max-width: 1062px) {
+      .content {
+        flex-flow: column wrap;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .info,
+      .apply {
+        width: 80%;
+      }
+
+      .apply {
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .titleComix.titleWork {
+        font-size: 16px;
       }
     }
   `

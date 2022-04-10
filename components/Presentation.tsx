@@ -38,7 +38,35 @@ const Presentation: NextPage = () => {
       width: 700px;
       margin-right: -100px;
     }
+    @media (max-width: 1100px) {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center; 
+      .logoPresentation {
+        width: 100%;
+        order: 0;
+        margin: 0px;
+      }
+      .readMore {
+        order: 2;
+        margin-bottom: 60px;
+      }
+      .text {
+        order: 1;
+        width: 50%;
+        margin-top: -30px;
+        text-align: justify;
+      }
+    }
+
+    @media (max-width: 504px) {
+      .text {
+        font-size: 13px;
+        width: 80%;
+      }
+    }
   `
+
   return (
     <PresentationStyled className='presentation'>
       {/*<div className="bottomImage">
@@ -54,7 +82,7 @@ const Presentation: NextPage = () => {
         </div>
         <div className="logoPresentation">
           <Image src={presentationFondo} alt='fondo de home' />
-          </div>
+        </div>
     </PresentationStyled>
   )
 }

@@ -1,18 +1,20 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
+import buttonLeft from '../public/img/left-arrow.png'
+import buttonRight from '../public/img/right-arrow.png'
 import Image from 'next/image'
-import buttonLeft from '../../public/img/left-arrow.png'
-import buttonRight from '../../public/img/right-arrow.png'
 
-type Logo = {
+type Member = {
   image: any,
-  name: string
+  name: string,
+  rol: string
 }
 
-const Logos = ({logos}: { logos: Logo[]}) => {
-  const LogosStyled = styled.div`
+const Team = ({members}: { members: Member[] } ) => {
+    const LogosStyled = styled.div`
     overflow: hidden;
     height: 270px;
     margin-top: 80px;
+    margin-bottom: 60px;
     .button {
       position: absolute;
       margin-top: 80px;
@@ -38,7 +40,7 @@ const Logos = ({logos}: { logos: Logo[]}) => {
       width: 100%;
       overflow: hidden;
       transition: 500ms all;
-      .contentLogos {
+      .contentMembers {
         display: flex;
         width: 10000px;
         transition: 500ms all;
@@ -48,7 +50,7 @@ const Logos = ({logos}: { logos: Logo[]}) => {
           flex-flow: column wrap;
           align-items: center;
           margin-left: 60px;
-          .imageLogo {
+          .imageMember {
             box-shadow: 0px 0px 4px var(--title);
             width: 100%;
             overflow: hidden;
@@ -59,15 +61,23 @@ const Logos = ({logos}: { logos: Logo[]}) => {
               transform: scale(1.05, 1.05);
             }
           }
-          .nameLogo {
-            color: var(--title);
-            text-transform: uppercase;
-            font-family: comix;
-            font-size: 14px;
+          .textMember {
+            background: #b60f25;
             margin-top: 10px;
+            border-radius: 0px 0px 20px 20px;
+            padding: 5px;
+            width: 100%;
+            .nameMember,
+            .rolMember {
+              text-transform: uppercase;
+              text-align: center;
+              color: white;
+              font-family: rubik; 
+              font-size: 14px;
+            }
           }
         }
-        .contentGame:hover .imageLogo {
+        .contentGame.Programador:hover .imageMember {
           border: 3px solid var(--title);
         }
       }
@@ -77,20 +87,21 @@ const Logos = ({logos}: { logos: Logo[]}) => {
   let position = 1
 
   const moveImages = (direction: 'right'|'left') => {
-    const contentLogos: HTMLElement|null = document.querySelector('.contentLogos')
-    if (contentLogos) {
+    const contentMembers: HTMLElement|null = document.querySelector('.contentMembers')
+    if (contentMembers) {
       if (direction === 'right') {
-        if (position < logos.length - 4) {
-          if (!contentLogos.style.marginLeft) {
-            contentLogos.style.marginLeft = '-260px'
+        if (position) {
+          if (!contentMembers.style.marginLeft) {
+            contentMembers.style.marginLeft = '-260px'
+            position += 1
           } else {
-            contentLogos.style.marginLeft = (parseInt(contentLogos.style.marginLeft) - 260) + 'px'
+            contentMembers.style.marginLeft = (parseInt(contentMembers.style.marginLeft) - 260) + 'px'
+            position += 1
           }
-          position += 1
         }
       } else {
         if (position > 1){
-          contentLogos.style.marginLeft = (parseInt(contentLogos.style.marginLeft) + 260) + 'px'
+          contentMembers.style.marginLeft = (parseInt(contentMembers.style.marginLeft) + 260) + 'px'
           position -= 1
         } 
       }
@@ -102,14 +113,17 @@ const Logos = ({logos}: { logos: Logo[]}) => {
         <button className="button left" onClick={() => moveImages('left')}>
           <Image src={buttonLeft} alt='Button Left' />
         </button>
-        <div className="contentLogos">
-          {logos.map(((logo: Logo, i) => {
+        <div className="contentMembers">
+          {members.map(((member: Member, i) => {
             return (
-              <div className="contentGame" key={logo.name + i}>
-                <div className="imageLogo">
-                  <Image src={logo.image} />
+              <div className={"contentGame " + member.rol} key={member.name + i}>
+                <div className="imageMember">
+                  <Image src={member.image} />
                 </div>
-                <p className="nameLogo">{logo.name}</p>
+                <div className="textMember">
+                <p className="nameMember">{member.name}</p>
+                <p className="rolMember">{member.rol}</p>
+                </div>
               </div>
             )
           }))}
@@ -117,16 +131,9 @@ const Logos = ({logos}: { logos: Logo[]}) => {
         <button className="button right" onClick={() => moveImages('right')}>
           <Image src={buttonRight} alt='Button Right' />
         </button>
-        <div className="pages">
-          {logos.map((logo: Logo, i) => {
-            if (i < logos.length - 4) {
-              return <div className={"page page" + i} key={'page' + i}></div>
-            }
-          })}
-        </div>
       </div>
     </LogosStyled>   
   )
 }
 
-export default Logos
+export default Team

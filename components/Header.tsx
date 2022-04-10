@@ -8,6 +8,8 @@ import linkedin from '../public/img/linkedin.png'
 import logo from '../public/img/logo_bacord.png'
 import Link from 'next/link'
 import * as Scroll from 'react-scroll'
+import buttonMenu from '../public/img/menu.png'
+
 
 const Header: NextPage = () => {
   const HeaderStyled = styled.div`
@@ -21,7 +23,7 @@ const Header: NextPage = () => {
     padding: 15px;
     background: #b60f25;
     box-shadow: 0px 0px 4px #b60f25;
-    z-index: 1;
+    z-index: 3;
     .left {
       display: flex;
       .logo {
@@ -69,9 +71,64 @@ const Header: NextPage = () => {
         box-shadow: 0px 0px 4px #b60f25 inset;
       }
     }
+    .menu {
+      position: fixed;
+      display: none;
+      left: 5px;
+      top: 15px;
+      overflow: hidden;
+      height: 44px;
+      transition: 300ms all;
+    }
+    .linksMenu {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: left;
+      list-style: none;
+      background: #b60f25;
+      padding: 20px;
+      border-radius: 0px 0px 20px 20px;
+      .linkMenu {
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    }
+    .menuButton {
+      width: 40px;
+      margin-left: 15px;
+      transition: 300ms all;
+    }
+    @media (max-width: 848px) {
+      .menu {
+        display: block;
+      }
+      .logo {
+        display: none;
+      }
+      .links { 
+        display: none;
+        * {
+          display: none;
+        }
+      }
+    }
   `
 
   const scroll = Scroll.animateScroll
+  const openMenu = () => {
+    const menu: HTMLElement|null = document.querySelector('.menu')
+    const buttonMenu: HTMLElement|null = document.querySelector('.menuButton')
+    if (menu && buttonMenu) {
+      if (!menu.style.height || menu.style.height === '44px') {
+        menu.style.height = '300px'
+        buttonMenu.style.transform = 'rotateZ(90deg)'
+      } else {
+        menu.style.height = '44px'
+        buttonMenu.style.transform = 'rotateZ(0deg)'
+      }
+    }
+  }
   
   const scrollTo = (position: number) => scroll.scrollTo(position)
   const changeColorScroll = (e: any) => {
@@ -89,9 +146,20 @@ const Header: NextPage = () => {
           <li className='link' onClick={() => scrollTo(400)}>ABOUT US</li>
           <li className='link' onClick={() => scrollTo(1120)}>GAMES</li>
           <li className='link' onClick={() => scrollTo(3500)}>WORK WITH US</li>
-          <li className='link'>BLOG</li>
           <li className='link' onClick={() => scrollTo(6000)}>CONTACT</li>
         </ul>
+        <div className="menu">
+          <div className="menuButton" onClick={openMenu}>
+            <Image src={buttonMenu} alt='Button menu' />
+          </div>
+          <ul className="linksMenu">
+            <li className='linkMenu' onClick={() => scrollTo(0)}>HOME</li>
+            <li className='linkMenu' onClick={() => scrollTo(400)}>ABOUT US</li>
+            <li className='linkMenu' onClick={() => scrollTo(1120)}>GAMES</li>
+            <li className='linkMenu' onClick={() => scrollTo(3500)}>WORK WITH US</li>
+            <li className='linkMenu' onClick={() => scrollTo(6000)}>CONTACT</li>
+          </ul>
+        </div>
       </div>
       <div className="right">
         <div className="socialMedia">

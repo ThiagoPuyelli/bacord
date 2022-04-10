@@ -1,5 +1,9 @@
 import type { NextPage } from 'next'
 import styled from '@emotion/styled'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from "react-hook-form"
+import * as yup from 'yup'
+import emailjs from '@emailjs/browser'
 
 const Contact: NextPage = () => {
   const ContactStyled = styled.div`
@@ -28,18 +32,99 @@ const Contact: NextPage = () => {
         padding: 20px;
         border-radius: 20px;
       }
+
+      .buttonDiv {
+        width:100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin-top: 60px;
+        .submitContact {
+          padding: 10px;
+          background: var(--title);
+          box-shadow: 0px 0px 4px #ccc;
+          border: 1px solid #ccc;
+          color: white;
+          text-transform: uppercase;
+          border-radius: 20px;
+          width: 300px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: 300ms all;
+        }
+        .submitContact:hover {
+          background: #570312;
+        }
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .contactForm {
+        flex-flow: column wrap;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        .message {
+          margin-top: 20px;
+          height: 150px;
+        }
+      }
+    }
+
+    .errors {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      width: 100%;
+      margin-top: 60px;
+      font-size: 18px;
+      .msgError {
+        color: red;
+        text-shadow: 0px 0px 1px var(--title);
+      }
+    }
+
+    @media (max-width: 636px) {
+      .message,
+      .data {
+        width: 100% !important;
+      }
     }
   `
+  const consultSchema = yup.object({
+    name: yup.string().required().max(70),
+    message: yup.string().required().max(400),
+    email: yup.string().required().max(30).email()
+  })
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(consultSchema),
+    reValidateMode: 'onSubmit'
+  })
+
+  const submitForm = (data: any) => {
+  }
 
   return (
     <ContactStyled>
       <h1 className='titleComix'>CONTACT</h1>
-      <form className="contactForm">
+      <form className="contactForm" onSubmit={handleSubmit(submitForm)}>
         <div className="data">
-          <input type="text" placeholder='Name' className='inputContact' name='name' />
-          <input type="email" placeholder='Email' className='inputContact' name='email' style={{marginTop: '20px'}} />
+          <input type="text" placeholder='Name' className='inputContact' {...register('name')} />
+          <input type="email" placeholder='Email' className='inputContact' {...register('email')} style={{marginTop: '20px'}} />
         </div>
-        <textarea name="message" className='message' placeholder='Message'></textarea>
+        <textarea className='message' {...register('message')} placeholder='Message'></textarea>
+        <div className="errors">
+        {errors.email?.type === 'required' && 
+        <span className='msgError'>El nombre es requerido</span>}
+        {errors.email?.type === 'required' && 
+        <span className='msgError'>El email no es válido</span>}
+        {errors.email?.type === 'required' && 
+        <span className='msgError'>El mensaje es requerido</span>}
+        </div>
+        <div className="buttonDiv">
+          <button className='submitContact' type='submit'>Submit</button>
+        </div>
       </form>
     </ContactStyled>
   )

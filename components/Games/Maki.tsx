@@ -36,6 +36,27 @@ const Maki: NextPage = () =>  {
         box-shadow: 0px 0px 4px var(--title) inset;
       }
     }
+    @media (max-width: 1300px) {
+      display: flex;
+      flex-flow: column wrap;
+      height: auto;
+      .imageBottom {
+        position: relative;
+      }
+      .content {
+        padding: 0px;
+        width: 100%;
+      }
+      .makiText {
+        color: black !important;
+        width: 80%;
+        margin-top: 30px;
+      }
+      .makiButton {
+        margin-bottom: 30px;
+        margin-top: -10px;
+      }
+    }
   `
   return (
     <MakiStyled onScroll={(e) => console.log(e)}>

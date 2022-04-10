@@ -8,6 +8,11 @@
   font-family: noto;
 }
 
+@font-face {
+  src: url(../public/fonts/RubikBubbles-Regular.ttf);
+  font-family: rubik;
+}
+
 * {
   padding: 0px;
   box-sizing: border-box;
@@ -34,4 +39,14 @@ a {
   font-family: comix;
   font-size: 20px;
   letter-spacing: 4px;
+}
+
+@media (max-width: 796px) {
+  .buttonMenu {
+    display: block;
+  }
+  .logo,
+  .links {
+    display: none;
+  }
 }

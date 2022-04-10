@@ -5,6 +5,8 @@ import Games from '../components/Games'
 import Work from '../components/Work'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+import Team from '../components/Team'
+import jazzy from '../public/img/Jazzy_Logo.png'
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +16,73 @@ const Home: NextPage = () => {
       <Games />
       <Work />
       <Contact />
+      <Team members={[
+        {
+          image: jazzy,
+          name: 'Carlos Alberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        },
+        {
+          image: jazzy,
+          name: 'Roberto',
+          rol: 'Programador'
+        }
+      ]}/>
       <Footer />
     </div>
   )
