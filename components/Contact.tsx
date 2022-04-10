@@ -83,6 +83,15 @@ const Contact: NextPage = () => {
         text-shadow: 0px 0px 1px var(--title);
       }
     }
+    
+    .msgSuccess {
+      text-align: center;
+      width: 100%;
+      color: green;
+      font-weight: bold;
+      font-size: 20px;
+      display: none;
+    }
 
     @media (max-width: 636px) {
       .message,
@@ -102,7 +111,21 @@ const Contact: NextPage = () => {
     reValidateMode: 'onSubmit'
   })
 
-  const submitForm = (data: any) => {
+  const submitForm = async (data: any) => {
+    const contactForm: HTMLFormElement|null = document.querySelector('.contactForm')
+    if (contactForm) {
+      console.log(contactForm)
+    }
+    const msgSuccess: HTMLElement|null = document.querySelector('.msgSuccess')
+    if (msgSuccess) msgSuccess.style.display = 'block'
+    /*const buttonDiv = document.querySelector('.')
+    if (contactForm) {
+      const sendMail = await emailjs.sendForm('service_owdnfby', 'template_y55xkuq', contactForm, 'CqWIk1GaVBVy2E-h6')
+      if (sendMail.text === 'OK') {
+        reset()
+        if (msgSuccess) msgSuccess.style.display = 'block !important'
+      }
+    }*/
   }
 
   return (
@@ -122,6 +145,9 @@ const Contact: NextPage = () => {
         {errors.email?.type === 'required' && 
         <span className='msgError'>El mensaje es requerido</span>}
         </div>
+        <span className="msgSuccess">
+          Message sent, we will contact you
+        </span>
         <div className="buttonDiv">
           <button className='submitContact' type='submit'>Submit</button>
         </div>

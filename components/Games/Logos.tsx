@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import Image from 'next/image'
 import buttonLeft from '../../public/img/left-arrow.png'
 import buttonRight from '../../public/img/right-arrow.png'
+import { useState, useEffect } from 'react'
 
 type Logo = {
   image: any,
@@ -74,19 +75,28 @@ const Logos = ({logos}: { logos: Logo[]}) => {
     }
   `
 
+  const [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    setWidth(window.innerWidth)
+  }, [])
+
   let position = 1
 
   const moveImages = (direction: 'right'|'left') => {
     const contentLogos: HTMLElement|null = document.querySelector('.contentLogos')
     if (contentLogos) {
       if (direction === 'right') {
-        if (position < logos.length - 4) {
-          if (!contentLogos.style.marginLeft) {
+        if (position) {
+          if (!contentLogos.style.marginLeft && position < numberPages()) {
             contentLogos.style.marginLeft = '-260px'
+            position += 1
           } else {
-            contentLogos.style.marginLeft = (parseInt(contentLogos.style.marginLeft) - 260) + 'px'
+            if (position < numberPages()) {
+              contentLogos.style.marginLeft = (parseInt(contentLogos.style.marginLeft) - 260) + 'px'
+              position += 1
+            }
           }
-          position += 1
         }
       } else {
         if (position > 1){
@@ -96,6 +106,21 @@ const Logos = ({logos}: { logos: Logo[]}) => {
       }
     }
   }
+
+  const numberPages = () => {
+    if (width >= 1326) {
+      return logos.length - 4
+    } else if (width >= 1052) {
+      return logos.length - 3
+    } else if (width >= 794) {
+      return logos.length - 2
+    } else if (width >= 542) {
+      return logos.length - 1
+    } else {
+      return logos.length
+    }
+  }
+  
   return (
     <LogosStyled>
       <div className="carousel">

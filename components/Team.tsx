@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import buttonLeft from '../public/img/left-arrow.png'
 import buttonRight from '../public/img/right-arrow.png'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 type Member = {
   image: any,
@@ -84,6 +85,12 @@ const Team = ({members}: { members: Member[] } ) => {
     }
   `
 
+  const [width, setWidth] = useState(0)
+
+  useEffect(() => {
+    setWidth(window.innerWidth)
+  }, [])
+  
   let position = 1
 
   const moveImages = (direction: 'right'|'left') => {
@@ -91,12 +98,14 @@ const Team = ({members}: { members: Member[] } ) => {
     if (contentMembers) {
       if (direction === 'right') {
         if (position) {
-          if (!contentMembers.style.marginLeft) {
+          if (!contentMembers.style.marginLeft && position < numberPages()) {
             contentMembers.style.marginLeft = '-260px'
             position += 1
           } else {
-            contentMembers.style.marginLeft = (parseInt(contentMembers.style.marginLeft) - 260) + 'px'
-            position += 1
+            if (position < numberPages()) {
+              contentMembers.style.marginLeft = (parseInt(contentMembers.style.marginLeft) - 260) + 'px'
+              position += 1
+            }
           }
         }
       } else {
@@ -107,6 +116,21 @@ const Team = ({members}: { members: Member[] } ) => {
       }
     }
   }
+
+  const numberPages = () => {
+    if (width >= 1326) {
+      return members.length - 4
+    } else if (width >= 1052) {
+      return members.length - 3
+    } else if (width >= 794) {
+      return members.length - 2
+    } else if (width >= 542) {
+      return members.length - 1
+    } else {
+      return members.length
+    }
+  }
+  
   return (
     <LogosStyled>
       <div className="carousel">

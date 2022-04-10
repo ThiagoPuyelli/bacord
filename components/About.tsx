@@ -1,5 +1,9 @@
 import type { NextPage } from 'next'
 import styled from '@emotion/styled'
+import Image from 'next/image'
+import teamWork from '../public/img/teamwork.png'
+import creativity from '../public/img/creativity.png'
+import pasion from '../public/img/pasion.png'
 
 const About: NextPage = () => {
   const AboutStyled = styled.div`
@@ -11,6 +15,7 @@ const About: NextPage = () => {
       font-family: comix;
       color: var(--title);
       letter-spacing: 4px;
+      text-align: center;
     }
     .contentAbout {
       display: flex;
@@ -26,8 +31,6 @@ const About: NextPage = () => {
         .circle {
           width: 200px;
           height: 200px;
-          border-radius: 100%;
-          border: 1px solid gray;
           margin-bottom: 30px;
         }
         .textDiv {
@@ -99,7 +102,9 @@ const About: NextPage = () => {
       <h3 className='titleAbout'>ABOUT US</h3>
       <div className="contentAbout">
         <div className="divAbout">
-          <div className="circle"></div>
+          <div className="circle">
+            <Image src={teamWork} />
+          </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
             TEAMWORK
@@ -110,7 +115,9 @@ const About: NextPage = () => {
           </div>
         </div>
         <div className="divAbout">
-          <div className="circle"></div>
+          <div className="circle">
+            <Image src={creativity} />
+          </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
             CREATIVITY
@@ -121,7 +128,9 @@ const About: NextPage = () => {
           </div>
         </div>
         <div className="divAbout">
-          <div className="circle"></div>
+          <div className="circle">
+            <Image src={pasion} />
+          </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
             PASSION
