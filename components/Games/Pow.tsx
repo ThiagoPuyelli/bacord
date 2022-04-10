@@ -84,8 +84,7 @@ const Pow: NextPage = () => {
       <div className="content">
         <div className="contentPow">
           <p className="textPow">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta accusamus veniam quas cupiditate incidunt esse obcaecati fuga, quasi nostrum culpa saepe nulla unde possimus. Veniam, ab, blanditiis aspernatur illo voluptatem error quisquam, ducimus distinctio pariatur cupiditate alias? Illo, accusamus? Saepe id delectus sint aliquam rerum magni, esse commodi quod repellat totam labore. Voluptatibus laborum officia ea sapiente a corporis fuga at earum excepturi! Esse sunt deserunt ratione culpa aspernatur delectus.
-          </p>
+          Pow Gaming is a B2B solution that is developing an e-sports platform for the management of multiplayer casual gaming. This solution aims to satisfy the need for various industries, including Gambling, Tournaments, online events, casinos, content for large audiences and partnership programs.          </p>
           <button className="buttonPow">OUR GAMES</button>
           <button className="buttonPow">POW GAMING WEBSITE</button>
         </div>
@@ -99,8 +98,7 @@ const Pow: NextPage = () => {
         </div>
         <div className="contentPow">
           <p className="textPow">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta accusamus veniam quas cupiditate incidunt esse obcaecati fuga, quasi nostrum culpa saepe nulla unde possimus. Veniam, ab, blanditiis aspernatur illo voluptatem error quisquam, ducimus distinctio pariatur cupiditate alias? Illo, accusamus? Saepe id delectus sint aliquam rerum magni, esse commodi quod repellat totam labore. Voluptatibus laborum officia ea sapiente a corporis fuga at earum excepturi! Esse sunt deserunt ratione culpa aspernatur delectus.
-          </p>
+          Pow Gaming is a B2B solution that is developing an e-sports platform for the management of multiplayer casual gaming. This solution aims to satisfy the need for various industries, including Gambling, Tournaments, online events, casinos, content for large audiences and partnership programs.          </p>
           <button className="buttonPow">OUR GAMES</button>
           <button className="buttonPow">POW GAMING WEBSITE</button>
         </div>

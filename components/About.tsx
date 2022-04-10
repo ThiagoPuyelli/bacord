@@ -110,8 +110,7 @@ const About: NextPage = () => {
             TEAMWORK
           </h5>
           <p className='textDiv'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed libero nostrum reprehenderit dolores. Natus similique aliquam fugit pariatur doloremque repellendus tempore vitae odio eos placeat hic quam veritatis dolorum cumque laboriosam, quibusdam, vero repudiandae doloribus itaque quas tenetur illo praesentium!
-          </p>
+          Bacord’s team is full of excellent professionals, the top ones in their respective fields of work, always giving their best. Each new game is a challenge, where creativity plays a key role.          </p>
           </div>
         </div>
         <div className="divAbout">
@@ -123,8 +122,7 @@ const About: NextPage = () => {
             CREATIVITY
           </h5>
           <p className='textDiv'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed libero nostrum reprehenderit dolores. Natus similique aliquam fugit pariatur doloremque repellendus tempore vitae odio eos placeat hic quam veritatis dolorum cumque laboriosam, quibusdam, vero repudiandae doloribus itaque quas tenetur illo praesentium!
-          </p>
+          Each idea is a whole new universe to explore. We begin every project with an open mind and we finish it with a colorful landscape. Nothing is taken for granted, we’re always thinking outside the box.            </p>
           </div>
         </div>
         <div className="divAbout">
@@ -136,8 +134,7 @@ const About: NextPage = () => {
             PASSION
           </h5>
           <p className='textDiv'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed libero nostrum reprehenderit dolores. Natus similique aliquam fugit pariatur doloremque repellendus tempore vitae odio eos placeat hic quam veritatis dolorum cumque laboriosam, quibusdam, vero repudiandae doloribus itaque quas tenetur illo praesentium!
-          </p>
+          If there’s any word to define an argentinian team, that would be “passion”. We passionately take on every new project and we take care of every detail along the way. If you don’t know us, with just knowing where we’re from its enough to describe us.          </p>
           </div>
         </div>
       </div> 

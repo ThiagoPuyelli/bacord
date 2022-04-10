@@ -65,7 +65,9 @@ const Maki: NextPage = () =>  {
       </div>
       <div className="content">
         <p className='makiText'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum quae ducimus exercitationem vitae velit tempore debitis dolor maxime magnam praesentium sed voluptatibus, provident sequi beatae at quisquam repellat fugiat. Ab a fugiat ipsum mollitia minus maiores qui quos dolorem consequatur cumque nostrum reiciendis sequi repudiandae, alias provident numquam molestiae repellat totam eligendi neque voluptatem assumenda illum? Velit quam tempora animi.
+        Maki is a little orange fox from the woods, and in his first adventure he will have to rescue his friend Kami from her kidnapper, Mapu. But is this the whole truth? What had happened in order to make Mapu kidnap Kami? How is Doctor Coso involved in this? 
+Maki Paw of Fury is a classic beat’em up, where you will have a blast. But is also a love letter to the pop culture and the arcades. 
+This is Bacord’s Seaside first project.
         </p>
         <button className='makiButton'>GO TO MAKI SITE</button>
       </div>

@@ -74,8 +74,7 @@ const Presentation: NextPage = () => {
   </div>*/}
         <div className="text">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At rerum modi non quod consequatur autem ducimus sint consectetur placeat odit voluptas illo officiis cumque tempore ad esse, animi voluptate soluta dolores. Quos magnam cum vitae repellat reprehenderit nam quae fuga earum? Dolorem maiores sequi numquam est temporibus tempora animi odio aut ab unde odit, dolore enim veniam. Tenetur, sunt. Saepe.
-          </p>
+          We’re a gaming studio from Argentina, powered by our passion and hardwork. Founded by Gonzalo Cantarelli and Cristian Basoalto, alongside Ricardo Cuello and Matias Toyama. We make gambling-oriented mobile games, and in our side office “Seaside Bacord” we are dedicating ourselves to our biggest project to date “Maki, Paw of Fury”          </p>
           <button className='readMore'>
             READ MORE
           </button>

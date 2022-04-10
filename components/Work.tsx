@@ -32,10 +32,15 @@ const Work: NextPage = () => {
         letter-spacing: 2px;
         width: 100%;
         text-align: left;
+        text-align: center;
       }
-      p {
+      .listWork {
         margin-top: 30px;
         margin-bottom: 30px;
+        li {
+          list-style: quare;
+          list-style: var(--title);
+        }
       }
       .applyButton {
         background: var(--title);
@@ -84,13 +89,18 @@ const Work: NextPage = () => {
       <h1 className='titleComix titleWork'>WORK WITH US</h1>
       <div className="content">
         <p className="info">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ab suscipit tempora fuga natus aliquam nesciunt delectus accusamus impedit reiciendis sit debitis, hic neque quas qui commodi voluptatum corporis magnam consequatur quis eos? Alias, cumque ab. Vero praesentium magnam pariatur consectetur enim, id repellendus aliquam libero amet quas architecto voluptatem explicabo voluptates. Soluta consequatur molestias vel nisi reprehenderit ad animi iure assumenda deleniti doloribus aspernatur, dicta consectetur ratione distinctio explicabo aperiam optio, maxime quo doloremque iusto adipisci. Repudiandae, nesciunt soluta!
-        </p>
+        In Bacord we continue to grow day by day. If you would like to join us, you’re most welcome. We offer the best work atmosphere, a place where your voice and opinion matters, where we cherish passion and creativity.        </p>
         <div className="apply">
           <h3>What we offer</h3>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere vitae ex corrupti. Eaque possimus ea natus eveniet voluptatum quod, modi autem hic eligendi provident officiis similique officia doloribus ducimus aliquid perferendis commodi fugit asperiores vel reiciendis quas? Iste, itaque temporibus.
-          </p>
+          <ul className='listWork'>
+          <li>Opportunity to grow professionally</li>
+          <li>Variety of opinions</li>
+          <li>Excellent work atmosphere</li>
+          <li>Respect</li>
+          <li>Training</li>
+          <li>100% online work</li>
+          <li>Flexible hours</li>
+          </ul>
           <button className="applyButton">
             APPLY FOR A JOB
           </button>
