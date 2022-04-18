@@ -86,7 +86,6 @@ const About: NextPage = () => {
           width: 200px !important;
           height: 200px !important;
           border-radius: 100% !important;
-          border: 1px solid gray !important;
           margin-bottom: 30px !important;
         }
         .textDiv {

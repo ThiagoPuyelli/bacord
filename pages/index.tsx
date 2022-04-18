@@ -21,6 +21,7 @@ import Edu from '../public/img/Team/Edu.png'
 import ThiagoPuyelli from '../public/img/Team/Thiago.jpeg'
 import GonzaloCantarelli from '../public/img/Team/GonzaloCantarelli.jpg'
 import SwimmableBee912 from '../public/img/Team/SwimmableBee912.png'
+import Pablo from '../public/img/Team/Pablo.jpg'
 
 const Home: NextPage = () => {
   return (
@@ -89,6 +90,11 @@ const Home: NextPage = () => {
         {
           image: FrancoPonce,
           name: 'Franco Ponce',
+          rol: 'Programador'
+        },
+        {
+          image: Pablo,
+          name: 'Pablo',
           rol: 'Programador'
         },
         {

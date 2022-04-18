@@ -9,6 +9,10 @@ const Maki: NextPage = () =>  {
     .imageBottom {
       position: absolute;
       z-index: -1;
+      width: 100%;
+      * {
+        width: 100% !important;
+      }
     }
     .content {
       display: flex;
@@ -36,6 +40,26 @@ const Maki: NextPage = () =>  {
         box-shadow: 0px 0px 4px var(--title) inset;
       }
     }
+    @media (min-width: 1450px) {
+      height: 800px;
+    }
+
+    @media (min-width: 1550px) {
+      height: 850px;
+    }
+
+    @media (min-width: 1700px) {
+      height: 950px;
+    }
+
+    @media (min-width: 1800px) {
+      height: 1000px;
+    }
+
+    @media (min-width: 1880px) {
+      height: 1050px;
+    }
+    
     @media (max-width: 1300px) {
       display: flex;
       flex-flow: column wrap;

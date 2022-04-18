@@ -71,6 +71,11 @@ const Team = ({members}: { members: Member[] } ) => {
               height: 400px !important; 
               margin-top: -35px !important;
             }
+
+            .contentImage.pablo * {
+              height: 300px !important;
+              margin-top: -35px !important;
+            }
           }
           .textMember {
             background: #b60f25;
@@ -128,7 +133,11 @@ const Team = ({members}: { members: Member[] } ) => {
   }
 
   const numberPages = () => {
-    if (width >= 1326) {
+    if (width >= 1880) {
+      return members.length - 6
+    } else if (width >= 1600) {
+      return members.length - 5
+    } else if (width >= 1326) {
       return members.length - 4
     } else if (width >= 1052) {
       return members.length - 3
@@ -158,10 +167,20 @@ const Team = ({members}: { members: Member[] } ) => {
                 return ''
               }
             }
+
+            const className = () => {
+              if (member.name === 'Gonzalo Cantarelli') {
+                return 'contentImage gonzalo'
+              } else if (member.name === 'Pablo'){
+                return 'contentImage pablo'
+              } else {
+                return 'contentImage'
+              }
+            }
             return (
               <div className={"contentGame " + member.rol} key={member.name + i}>
                 <div className="imageMember">
-                  <div className={member.name === 'Gonzalo Cantarelli' ? "contentImage gonzalo" : "contentImage"} style={{
+                  <div className={className()} style={{
                     marginTop: marginTop()
                   }}>
                     <Image src={member.image} alt={member.image} />

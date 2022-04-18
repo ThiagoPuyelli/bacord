@@ -108,7 +108,11 @@ const Logos = ({logos}: { logos: Logo[]}) => {
   }
 
   const numberPages = () => {
-    if (width >= 1326) {
+    if (width >= 1880) {
+      return logos.length - 6
+    } else if (width >= 1600) {
+      return logos.length - 5
+    } else if (width >= 1326) {
       return logos.length - 4
     } else if (width >= 1052) {
       return logos.length - 3
