@@ -4,9 +4,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from "react-hook-form"
 import * as yup from 'yup'
 import emailjs from '@emailjs/browser'
+import { useState } from 'react'
 
 const Contact: NextPage = () => {
-  const ContactStyled = styled.div`
+  const ContactStyled = styled.section`
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -90,7 +91,6 @@ const Contact: NextPage = () => {
       color: green;
       font-weight: bold;
       font-size: 20px;
-      display: none;
     }
 
     @media (max-width: 636px) {
@@ -100,6 +100,8 @@ const Contact: NextPage = () => {
       }
     }
   `
+  const [success, setSuccess] = useState(false)
+  
   const consultSchema = yup.object({
     name: yup.string().required().max(70),
     message: yup.string().required().max(400),
@@ -114,22 +116,16 @@ const Contact: NextPage = () => {
   const submitForm = async (data: any) => {
     const contactForm: HTMLFormElement|null = document.querySelector('.contactForm')
     if (contactForm) {
-      console.log(contactForm)
-    }
-    const msgSuccess: HTMLElement|null = document.querySelector('.msgSuccess')
-    if (msgSuccess) msgSuccess.style.display = 'block'
-    /*const buttonDiv = document.querySelector('.')
-    if (contactForm) {
       const sendMail = await emailjs.sendForm('service_owdnfby', 'template_y55xkuq', contactForm, 'CqWIk1GaVBVy2E-h6')
       if (sendMail.text === 'OK') {
-        reset()
-        if (msgSuccess) msgSuccess.style.display = 'block !important'
+        contactForm.reset()
+        setSuccess(true)
       }
-    }*/
+    }
   }
 
   return (
-    <ContactStyled>
+    <ContactStyled id='contact'>
       <h1 className='titleComix'>CONTACT</h1>
       <form className="contactForm" onSubmit={handleSubmit(submitForm)}>
         <div className="data">
@@ -139,15 +135,15 @@ const Contact: NextPage = () => {
         <textarea className='message' {...register('message')} placeholder='Message'></textarea>
         <div className="errors">
         {errors.email?.type === 'required' && 
-        <span className='msgError'>El nombre es requerido</span>}
+        <span className='msgError'>The name is required</span>}
         {errors.email?.type === 'required' && 
         <span className='msgError'>El email no es válido</span>}
         {errors.email?.type === 'required' && 
-        <span className='msgError'>El mensaje es requerido</span>}
+        <span className='msgError'>The message is required</span>}
         </div>
-        <span className="msgSuccess">
+        {success && <span className="msgSuccess">
           Message sent, we will contact you
-        </span>
+        </span>}
         <div className="buttonDiv">
           <button className='submitContact' type='submit'>Submit</button>
         </div>

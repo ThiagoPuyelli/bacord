@@ -6,7 +6,8 @@ import facebook from '../public/img/facebook.png'
 import instagram from '../public/img/instagram.png'
 import linkedin from '../public/img/linkedin.png'
 import logo from '../public/img/logo_bacord.png'
-import Link from 'next/link'
+import LinkNext from 'next/link'
+import { Link, animateScroll as scroll } from 'react-scroll'
 import * as Scroll from 'react-scroll'
 import buttonMenu from '../public/img/menu.png'
 
@@ -131,56 +132,53 @@ const Header: NextPage = () => {
   }
   
   const scrollTo = (position: number) => scroll.scrollTo(position)
-  const changeColorScroll = (e: any) => {
-    console.log(e)
-  }
   
   return (
-    <HeaderStyled onScroll={(e) => changeColorScroll(e)}>
+    <HeaderStyled>
       <div className="left">
         <div className="logo">
           <Image src={logo} alt='Logo of bacord'/>
         </div>
         <ul className='links'>
-          <li className='link' onClick={() => scrollTo(0)}>HOME</li>
-          <li className='link' onClick={() => scrollTo(400)}>ABOUT US</li>
-          <li className='link' onClick={() => scrollTo(1120)}>GAMES</li>
-          <li className='link' onClick={() => scrollTo(3500)}>WORK WITH US</li>
-          <li className='link' onClick={() => scrollTo(6000)}>CONTACT</li>
+          <li className='link'><Link to='presentation' smooth={true} offset={-70} >HOME</Link></li>
+          <li className='link'><Link to='about' smooth={true} offset={-100}>ABOUT US</Link></li>
+          <li className='link'><Link to='games' smooth={true} offset={-150}>GAMES</Link></li>
+          <li className='link'><Link to='work' smooth={true} offset={-70}>WORK WITH US</Link></li>
+          <li className='link'><Link to='contact' smooth={true} offset={-70}>CONTACT</Link></li>
         </ul>
         <div className="menu">
           <div className="menuButton" onClick={openMenu}>
             <Image src={buttonMenu} alt='Button menu' />
           </div>
           <ul className="linksMenu">
-            <li className='linkMenu' onClick={() => scrollTo(0)}>HOME</li>
-            <li className='linkMenu' onClick={() => scrollTo(400)}>ABOUT US</li>
-            <li className='linkMenu' onClick={() => scrollTo(1120)}>GAMES</li>
-            <li className='linkMenu' onClick={() => scrollTo(3500)}>WORK WITH US</li>
-            <li className='linkMenu' onClick={() => scrollTo(6000)}>CONTACT</li>
+          <li className='linkMenu'><Link to='presentation' smooth={true} offset={-70}>HOME</Link></li>
+          <li className='linkMenu'><Link to='about' smooth={true} offset={-100}>ABOUT US</Link></li>
+          <li className='linkMenu'><Link to='games' smooth={true} offset={-150}>GAMES</Link></li>
+          <li className='linkMenu'><Link to='work' smooth={true} offset={-70}>WORK WITH US</Link></li>
+          <li className='linkMenu'><Link to='contact' smooth={true} offset={-70}>CONTACT</Link></li>
           </ul>
         </div>
       </div>
       <div className="right">
         <div className="socialMedia">
-          <Link href='https://www.facebook.com/bacordgames'>
-            <a href="https://www.facebook.com/bacordgames" target='_blank'><Image src={facebook}/></a>
-          </Link>
+          <LinkNext href='https://www.facebook.com/bacordgames'>
+            <a href="https://www.facebook.com/bacordgames" target='_blank' rel='noreferrer'><Image src={facebook} alt='facebook'/></a>
+          </LinkNext>
         </div>  
         <div className="socialMedia">
-          <Link href='https://www.instagram.com/bacordgames/'  passHref>
-            <a href="https://www.instagram.com/bacordgames/" target='_blank'><Image src={instagram}/></a>
-          </Link>
+          <LinkNext href='https://www.instagram.com/bacordgames/'  passHref>
+            <a href="https://www.instagram.com/bacordgames/" target='_blank' rel='noreferrer'><Image src={instagram} alt='instagram'/></a>
+          </LinkNext>
         </div>
         <div className="socialMedia">
-          <Link href='https://twitter.com/BacordGames' passHref>
-            <a href="https://twitter.com/BacordGames" target='_blank'><Image src={twitter}/></a>
-          </Link>
+          <LinkNext href='https://twitter.com/BacordGames' passHref>
+            <a href="https://twitter.com/BacordGames" target='_blank' rel='noreferrer'><Image src={twitter} alt='twitter'/></a>
+          </LinkNext>
         </div>
         <div className="socialMedia">
-          <Link href='https://www.linkedin.com/company/bacordgames/' passHref>
-            <a href="https://www.linkedin.com/company/bacordgames/" target='_blank'><Image src={linkedin}/></a>
-          </Link>
+          <LinkNext href='https://www.linkedin.com/company/bacordgames/' passHref>
+            <a href="https://www.linkedin.com/company/bacordgames/" target='_blank' rel='noreferrer'><Image src={linkedin} alt='linkedin'/></a>
+          </LinkNext>
         </div>
       </div>
     </HeaderStyled>

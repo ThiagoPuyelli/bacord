@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Header from '../components/Header'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const clickBody = (e: any) => {
@@ -21,6 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   
   return (
     <div onClick={(e) => clickBody(e)}>
+      <Head>
+      <link rel="shortcut icon" href="../public/favicon.ico" />
+      </Head>
       <Header />
       <Component {...pageProps} />
     </div>

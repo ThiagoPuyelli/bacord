@@ -6,7 +6,7 @@ import creativity from '../public/img/creativity.png'
 import pasion from '../public/img/pasion.png'
 
 const About: NextPage = () => {
-  const AboutStyled = styled.div`
+  const AboutStyled = styled.section`
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -98,12 +98,12 @@ const About: NextPage = () => {
   `
 
   return (
-    <AboutStyled>
+    <AboutStyled id='about'>
       <h3 className='titleAbout'>ABOUT US</h3>
       <div className="contentAbout">
         <div className="divAbout">
           <div className="circle">
-            <Image src={teamWork} />
+            <Image src={teamWork}  alt='teamWork'/>
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
@@ -115,7 +115,7 @@ const About: NextPage = () => {
         </div>
         <div className="divAbout">
           <div className="circle">
-            <Image src={creativity} />
+            <Image src={creativity}  alt='creativity'/>
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
@@ -127,7 +127,7 @@ const About: NextPage = () => {
         </div>
         <div className="divAbout">
           <div className="circle">
-            <Image src={pasion} />
+            <Image src={pasion}  alt='pasion'/>
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>

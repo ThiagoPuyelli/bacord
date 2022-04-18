@@ -11,6 +11,7 @@ type Member = {
 }
 
 const Team = ({members}: { members: Member[] } ) => {
+  
     const LogosStyled = styled.div`
     overflow: hidden;
     height: 270px;
@@ -35,7 +36,7 @@ const Team = ({members}: { members: Member[] } ) => {
     }
     .button.right {
       right: 1%;
-      margin-top: -150px;
+      margin-top: -221px;
     }
     .carousel {
       width: 100%;
@@ -51,15 +52,24 @@ const Team = ({members}: { members: Member[] } ) => {
           flex-flow: column wrap;
           align-items: center;
           margin-left: 60px;
+          height: 300px;
           .imageMember {
-            box-shadow: 0px 0px 4px var(--title);
             width: 100%;
             overflow: hidden;
             border-radius: 100%;
             transition: 300ms all;
             border: 3px solid transparent;
-            * {
-              transform: scale(1.05, 1.05);
+            height: 200px;
+            box-shadow: 0px 0px 4px var(--title);
+            .contentImage {
+              * {
+                transform: scale(1.05, 1.05);
+                height: 200px;
+              }
+            }
+            .contentImage.gonzalo * {
+              height: 400px !important; 
+              margin-top: -35px !important;
             }
           }
           .textMember {
@@ -78,7 +88,7 @@ const Team = ({members}: { members: Member[] } ) => {
             }
           }
         }
-        .contentGame.Programador:hover .imageMember {
+        .contentGame:hover .imageMember {
           border: 3px solid var(--title);
         }
       }
@@ -139,14 +149,27 @@ const Team = ({members}: { members: Member[] } ) => {
         </button>
         <div className="contentMembers">
           {members.map(((member: Member, i) => {
+            const marginTop = () => {
+              if (member.name === 'Max Van Hauvart') {
+                return '12px'
+              } else if (member.name === 'Thiago Puyelli') {
+                return '-30px'
+              } else {
+                return ''
+              }
+            }
             return (
               <div className={"contentGame " + member.rol} key={member.name + i}>
                 <div className="imageMember">
-                  <Image src={member.image} />
+                  <div className={member.name === 'Gonzalo Cantarelli' ? "contentImage gonzalo" : "contentImage"} style={{
+                    marginTop: marginTop()
+                  }}>
+                    <Image src={member.image} alt={member.image} />
+                  </div>
                 </div>
                 <div className="textMember">
                 <p className="nameMember">{member.name}</p>
-                <p className="rolMember">{member.rol}</p>
+                <p className="rolMember">{member.rol === 'GameDesign' ? 'Game Design': member.rol}</p>
                 </div>
               </div>
             )

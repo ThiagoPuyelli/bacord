@@ -1,8 +1,9 @@
 import type { NextPage } from 'next'
 import styled from '@emotion/styled'
+import { Link } from 'react-scroll'
 
 const Work: NextPage = () => {
-  const WorkStyled = styled.div`
+  const WorkStyled = styled.section`
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -85,7 +86,7 @@ const Work: NextPage = () => {
   `
 
   return (
-    <WorkStyled>
+    <WorkStyled id='work'>
       <h1 className='titleComix titleWork'>WORK WITH US</h1>
       <div className="content">
         <p className="info">
@@ -101,9 +102,11 @@ const Work: NextPage = () => {
           <li>100% online work</li>
           <li>Flexible hours</li>
           </ul>
-          <button className="applyButton">
-            APPLY FOR A JOB
-          </button>
+          <Link to='contact' smooth={true} offset={-70}>
+            <button className="applyButton">
+              APPLY FOR A JOB
+            </button>
+          </Link>
         </div>
       </div>
     </WorkStyled>

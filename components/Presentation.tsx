@@ -5,7 +5,7 @@ import bottomImg from '../public/img/fondo.svg'
 import presentationFondo from '../public/img/presentationFondo.png'
 
 const Presentation: NextPage = () => {
-  const PresentationStyled = styled.div`
+  const PresentationStyled = styled.section`
     margin-top: 67px;
     display: flex;
     flex-flow: row wrap;

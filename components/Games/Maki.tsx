@@ -61,7 +61,7 @@ const Maki: NextPage = () =>  {
   return (
     <MakiStyled onScroll={(e) => console.log(e)}>
       <div className="imageBottom">
-        <Image src={makiBottom} />
+        <Image src={makiBottom} alt='Maki photo' />
       </div>
       <div className="content">
         <p className='makiText'>

@@ -5,7 +5,7 @@ const Footer: NextPage = () => {
   const FooterStyled = styled.footer`
     text-align: center;
     padding: 40px;
-    background: var(--title);
+    background: #b60f25;
     color: white;
   `
   return (

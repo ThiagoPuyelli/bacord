@@ -132,9 +132,11 @@ const Logos = ({logos}: { logos: Logo[]}) => {
             return (
               <div className="contentGame" key={logo.name + i}>
                 <div className="imageLogo">
-                  <Image src={logo.image} />
+                  <Image src={logo.image} alt={logo.image} />
                 </div>
-                <p className="nameLogo">{logo.name}</p>
+                <p className="nameLogo" style={{
+                  fontSize: logo.name === 'Battleship Real' || logo.name === 'Bomber Slimes Shoot' ? '10px' : ''
+                }}>{logo.name}</p>
               </div>
             )
           }))}
