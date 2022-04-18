@@ -37,6 +37,7 @@ const Presentation: NextPage = () => {
     .logoPresentation {
       width: 700px;
       margin-right: -100px;
+      animation: updown 2s ease-in-out infinite alternate-reverse both;
     }
     @media (max-width: 1100px) {
       display: flex;

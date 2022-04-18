@@ -50,3 +50,21 @@ a {
     display: none;
   }
 }
+
+@keyframes updown {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px); 
+  }
+}
+
+@keyframes rotateInfinity {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

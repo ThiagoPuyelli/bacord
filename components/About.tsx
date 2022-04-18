@@ -23,12 +23,14 @@ const About: NextPage = () => {
       width: 100%;
       justify-content: center;
       .divAbout {
-        width: 200px;
-        margin: 60px;
+        width: 300px;
+        margin: 40px;
         display: flex;
         flex-flow: wrap column;
         align-items: center;
-        .circle {
+        transition: 300ms all;
+        padding: 20px;
+        .circle { 
           width: 200px;
           height: 200px;
           margin-bottom: 30px;
@@ -37,6 +39,12 @@ const About: NextPage = () => {
           margin-top: 20px;
           text-align: justify;
         }
+      }
+      .divAbout:hover {
+        transform: scale(1.1, 1.1);
+        box-shadow: 0px 0px 3px var(--title);
+        border: 1px solid var(--title);
+        border-radius: 20px;
       }
     }
     @media (max-width: 648px) {
