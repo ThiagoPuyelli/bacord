@@ -3,6 +3,7 @@ import Image from 'next/image'
 import buttonLeft from '../../public/img/left-arrow.png'
 import buttonRight from '../../public/img/right-arrow.png'
 import { useState, useEffect } from 'react'
+import { PieChart } from 'react-minimal-pie-chart'
 
 type Logo = {
   image: any,
@@ -67,6 +68,7 @@ const Logos = ({logos}: { logos: Logo[]}) => {
             font-size: 14px;
             margin-top: 10px;
           }
+          
         }
         .contentGame:hover .imageLogo {
           border: 3px solid var(--title);

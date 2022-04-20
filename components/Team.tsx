@@ -3,6 +3,7 @@ import buttonLeft from '../public/img/left-arrow.png'
 import buttonRight from '../public/img/right-arrow.png'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { PieChart } from 'react-minimal-pie-chart'
 
 type Member = {
   image: any,
@@ -93,15 +94,32 @@ const Team = ({members}: { members: Member[] } ) => {
             }
           }
         }
-        .contentGame:hover .imageMember {
-          border: 3px solid var(--title);
+        .contentGame:hover .pie {
+          opacity: 1;
+          display: block;
         }
+      }
+    }
+    .pie {
+      position: absolute;
+      width: 200px;
+      opacity: 0;
+      transition: 600ms all;
+      display: none;
+      box-shadow: 0px 0px 8px #ccc;
+      border-radius: 999px;
+      * {
+        color: white !important;
       }
     }
   `
 
   const [width, setWidth] = useState(0)
-
+  const data = [
+    { title: 'Ansiedad', key:'Ansiedad', value: 30, color: 'red', fontColor: 'white' },
+    { title: 'Cansancio', key:'Cansancio', value: 20, color: 'cyan' },
+    { title: 'Constancia', key:'Constancia', value: 50, color: 'green' },
+  ]
   useEffect(() => {
     setWidth(window.innerWidth)
   }, [])
@@ -189,6 +207,18 @@ const Team = ({members}: { members: Member[] } ) => {
                 <div className="textMember">
                 <p className="nameMember">{member.name}</p>
                 <p className="rolMember">{member.rol === 'GameDesign' ? 'Game Design': member.rol}</p>
+                </div>
+                <div className="pie">
+                <PieChart
+                  data={data}
+                  lengthAngle={360}
+                  paddingAngle={0}
+                  label={(data) => data.dataEntry.title}
+                  labelPosition={65}
+                  labelStyle={{
+                    fontSize: 7,
+                  }}
+                     />
                 </div>
               </div>
             )
