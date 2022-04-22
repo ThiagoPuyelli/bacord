@@ -54,14 +54,17 @@ const Team = ({members}: { members: Member[] } ) => {
           align-items: center;
           margin-left: 60px;
           height: 300px;
+          padding-top: 5px;
           .imageMember {
             width: 100%;
             overflow: hidden;
             border-radius: 100%;
             transition: 300ms all;
-            border: 3px solid transparent;
             height: 200px;
+            border: 3px solid transparent;
             box-shadow: 0px 0px 4px var(--title);
+            background-size: cover;
+            backface-visibility: hidden;
             .contentImage {
               * {
                 transform: scale(1.05, 1.05);
@@ -94,21 +97,33 @@ const Team = ({members}: { members: Member[] } ) => {
             }
           }
         }
+        .contentGame:hover .imageMember {
+          transform: rotateY(-180deg);
+        } 
         .contentGame:hover .pie {
-          opacity: 1;
-          display: block;
+          transform: rotateY(0deg);
         }
       }
     }
     .pie {
-      position: absolute;
       width: 200px;
-      opacity: 0;
+      margin-left: -200px;
       transition: 600ms all;
-      display: none;
       box-shadow: 0px 0px 8px #ccc;
       border-radius: 999px;
-      * {
+      background-size: cover;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+      box-shadow: 0px 0px 4px var(--title);
+      padding: 0px;
+      height: 204px;
+      margin-top: -2px;
+      svg {
+        margin-bottom: -5px;
+        color: white !important;
+      }
+
+      svg text {
         color: white !important;
       }
     }
@@ -116,9 +131,9 @@ const Team = ({members}: { members: Member[] } ) => {
 
   const [width, setWidth] = useState(0)
   const data = [
-    { title: 'Ansiedad', key:'Ansiedad', value: 30, color: 'red', fontColor: 'white' },
-    { title: 'Cansancio', key:'Cansancio', value: 20, color: 'cyan' },
-    { title: 'Constancia', key:'Constancia', value: 50, color: 'green' },
+    { title: 'Ansiedad', key:'Ansiedad', value: 30, color: '#FD9A28' },
+    { title: 'Cansancio', key:'Cansancio', value: 20, color: '#FF5126' },
+    { title: 'Constancia', key:'Constancia', value: 50, color: '#d50000' },
   ]
   useEffect(() => {
     setWidth(window.innerWidth)
@@ -212,11 +227,13 @@ const Team = ({members}: { members: Member[] } ) => {
                 <PieChart
                   data={data}
                   lengthAngle={360}
-                  paddingAngle={0}
+                  segmentsShift={1}
                   label={(data) => data.dataEntry.title}
                   labelPosition={65}
                   labelStyle={{
                     fontSize: 7,
+                    color: 'white !important',
+                    fontFamily: 'noto'
                   }}
                      />
                 </div>
