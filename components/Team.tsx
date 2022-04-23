@@ -8,7 +8,8 @@ import { PieChart } from 'react-minimal-pie-chart'
 type Member = {
   image: any,
   name: string,
-  rol: string
+  rol: string,
+  data: any[]
 }
 
 const Team = ({members}: { members: Member[] } ) => {
@@ -130,11 +131,6 @@ const Team = ({members}: { members: Member[] } ) => {
   `
 
   const [width, setWidth] = useState(0)
-  const data = [
-    { title: 'Ansiedad', key:'Ansiedad', value: 30, color: '#FD9A28' },
-    { title: 'Cansancio', key:'Cansancio', value: 20, color: '#FF5126' },
-    { title: 'Constancia', key:'Constancia', value: 50, color: '#d50000' },
-  ]
   useEffect(() => {
     setWidth(window.innerWidth)
   }, [])
@@ -225,11 +221,10 @@ const Team = ({members}: { members: Member[] } ) => {
                 </div>
                 <div className="pie">
                 <PieChart
-                  data={data}
+                  data={member.data}
                   lengthAngle={360}
                   segmentsShift={1}
                   label={(data) => data.dataEntry.title}
-                  labelPosition={65}
                   labelStyle={{
                     fontSize: 7,
                     color: 'white !important',
