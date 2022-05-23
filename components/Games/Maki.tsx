@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import styled from '@emotion/styled'
 import Image from 'next/image'
 import makiBottom from '../../public/img/Maki.png'
+import { useSelector } from 'react-redux'
 
 const Maki: NextPage = () =>  {
   const MakiStyled = styled.div` 
@@ -82,6 +83,8 @@ const Maki: NextPage = () =>  {
       }
     }
   `
+  const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
+  
   return (
     <MakiStyled onScroll={(e) => console.log(e)}>
       <div className="imageBottom">
@@ -89,11 +92,23 @@ const Maki: NextPage = () =>  {
       </div>
       <div className="content">
         <p className='makiText'>
-        Maki is a little orange fox from the woods, and in his first adventure he will have to rescue his friend Kami from her kidnapper, Mapu. But is this the whole truth? What had happened in order to make Mapu kidnap Kami? How is Doctor Coso involved in this? 
-Maki Paw of Fury is a classic beat’em up, where you will have a blast. But is also a love letter to the pop culture and the arcades. 
-This is Bacord’s Seaside first project.
+          {
+            idiom === 'ESP'
+            ?
+            'Maki es un zorrito naranja del bosque. En su primer aventura tendra que rescatar a su amiga KAMI de las manos de Mapu, quien la secuestró. Pero es esta toda la verdad? ¿Qué fue lo que paso para que Mapu secuestre a Kami?? ¿Qué tiene que ver en todo esto el Doctor Coso?. Maki Paw of Fury es un BEAT EM UP clásico. Donde vas a divertirte a más no poder. Pero, también, es una carta de amor a la cultura POP y a la cultura de los arcades. Es nuestro primer proyecto en BACORD SEASIDE'
+            :
+            'Maki is a little orange fox from the woods, and in his first adventure he will have to rescue his friend Kami from her kidnapper, Mapu. But is this the whole truth? What had happened in order to make Mapu kidnap Kami? How is Doctor Coso involved in this? Maki Paw of Fury is a classic beat’em up, where you will have a blast. But is also a love letter to the pop culture and the arcades. This is Bacord’s Seaside first project.'
+          }
         </p>
-        <button className='makiButton'>GO TO MAKI SITE</button>
+        <button className='makiButton'>
+          {
+            idiom === 'ESP'
+            ?
+            'VÉ AL SITIO DE MAKI'
+            :
+            'GO TO MAKI SITE'
+          }
+        </button>
       </div>
     </MakiStyled>
   )

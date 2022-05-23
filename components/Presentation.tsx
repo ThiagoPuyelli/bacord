@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import Image from 'next/image'
 import bottomImg from '../public/img/fondo.svg'
 import presentationFondo from '../public/img/presentationFondo.png'
+import { useSelector } from 'react-redux'
 
 const Presentation: NextPage = () => {
   const PresentationStyled = styled.section`
@@ -68,16 +69,28 @@ const Presentation: NextPage = () => {
     }
   `
 
+  const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
+
   return (
     <PresentationStyled className='presentation'>
-      {/*<div className="bottomImage">
-        <Image src={bottomImg} alt='fondo' />
-  </div>*/}
         <div className="text">
           <p>
-          We’re a gaming studio from Argentina, powered by our passion and hardwork. Founded by Gonzalo Cantarelli and Cristian Basoalto, alongside Ricardo Cuello and Matias Toyama. We make gambling-oriented mobile games, and in our side office “Seaside Bacord” we are dedicating ourselves to our biggest project to date “Maki, Paw of Fury”          </p>
+          {
+          idiom === 'ESP'
+          ?
+          'Somos un estudio argentino. Con la pasión por nuestro trabajo como insignia y con el trabajo duro como combustible . Fundado en 2017 por Gonzalo Cantarelli y Cristian Basoalto. Junto a Ricardo Cuello y Matias Toyama. Nos dedicamos a hacer juegos mobile con orientación al gambling. Y desde nuestra subsidiaria BACORD SEASIDE nos dedicamos a crear sueños jugables, cartas de amor lúdicas, con nuestro primer gran proyecto en Maki, Paw of fury.'
+          :
+          'We’re a gaming studio from Argentina, powered by our passion and hardwork. Founded by Gonzalo Cantarelli and Cristian Basoalto, alongside Ricardo Cuello and Matias Toyama. We make gambling-oriented mobile games, and in our side office “Seaside Bacord” we are dedicating ourselves to our biggest project to date “Maki, Paw of Fury”'
+          } 
+                    </p>
           <button className='readMore'>
-            READ MORE
+            {
+              idiom === 'ESP'
+              ?
+              'LEER MÁS'
+              :
+              'READ MORE'
+            }
           </button>
         </div>
         <div className="logoPresentation">

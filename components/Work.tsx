@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import styled from '@emotion/styled'
 import { Link } from 'react-scroll'
+import { useSelector } from 'react-redux'
 
 const Work: NextPage = () => {
   const WorkStyled = styled.section`
@@ -84,27 +85,71 @@ const Work: NextPage = () => {
       }
     }
   `
+  const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
 
   return (
     <WorkStyled id='work'>
-      <h1 className='titleComix titleWork'>WORK WITH US</h1>
+      <h1 className='titleComix titleWork'>
+        {
+          idiom === 'ESP'
+          ?
+          'ÚNETE A BACORD'
+          :
+          'WORK WITH US'
+        }
+      </h1>
       <div className="content">
         <p className="info">
-        In Bacord we continue to grow day by day. If you would like to join us, you’re most welcome. We offer the best work atmosphere, a place where your voice and opinion matters, where we cherish passion and creativity.        </p>
+          {
+            idiom === 'ESP'
+            ?
+            'En Bacord estamos creciendo dia a dia. Si querés acompañarnos en este crecimiento, estas bienvenido. Ofrecemos el mejor ambiente laboral posible. Un lugar donde tu voz y opinión cuenta. Donde premiamos la pasión y la creatividad. Donde la palabra CRUNCH es un insulto y la libertad una máxima. Aca no importa si recién empezas o si sos un veterano del desarrollo. Todos tienen su lugar. '
+            :
+            'In Bacord we continue to grow day by day. If you would like to join us, you’re most welcome. We offer the best work atmosphere, a place where your voice and opinion matters, where we cherish passion and creativity.'
+          }
+        </p>
         <div className="apply">
-          <h3>What we offer</h3>
-          <ul className='listWork'>
-          <li>Opportunity to grow professionally</li>
-          <li>Variety of opinions</li>
-          <li>Excellent work atmosphere</li>
-          <li>Respect</li>
-          <li>Training</li>
-          <li>100% online work</li>
-          <li>Flexible hours</li>
-          </ul>
+          <h3>
+            {
+              idiom === 'ESP'
+              ?
+              'Qué ofrecemos'
+              :
+              'What we offer'
+            }
+          </h3>
+            {
+              idiom === 'ESP'
+              ?
+              <ul className='listWork'>
+                  <li>Oportunidad de crecer</li>
+                  <li>Pluralidad de voces</li>
+                  <li>Excelente ambiente laboral</li>
+                  <li>Respeto</li>
+                  <li>Capacitaciones</li>
+                  <li>Trabajo 100% remoto</li>
+                  <li>Horarios versátiles</li>
+              </ul>
+              :
+              <ul className='listWork'>
+                  <li>Opportunity to grow professionally</li>
+                  <li>Variety of opinions</li>
+                  <li>Excellent work atmosphere</li>
+                  <li>Respect</li>
+                  <li>Training</li>
+                  <li>100% online work</li>
+                  <li>Flexible hours</li>
+              </ul>
+            }
           <Link to='contact' smooth={true} offset={-70}>
             <button className="applyButton">
-              APPLY FOR A JOB
+              {
+                idiom === 'ESP'
+                ?
+                'APLICA AL TRABAJO'
+                :
+                'APPLY FOR A JOB'
+              }
             </button>
           </Link>
         </div>

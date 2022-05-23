@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import * as yup from 'yup'
 import emailjs from '@emailjs/browser'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const Contact: NextPage = () => {
   const ContactStyled = styled.section`
@@ -124,28 +125,58 @@ const Contact: NextPage = () => {
     }
   }
 
+  const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
+
   return (
     <ContactStyled id='contact'>
-      <h1 className='titleComix'>CONTACT</h1>
+      <h1 className='titleComix'>
+        {
+          idiom === 'ESP'
+          ?
+          'CONTACTO'
+          :
+          'CONTACT'
+        }
+      </h1>
       <form className="contactForm" onSubmit={handleSubmit(submitForm)}>
         <div className="data">
-          <input type="text" placeholder='Name' className='inputContact' {...register('name')} />
-          <input type="email" placeholder='Email' className='inputContact' {...register('email')} style={{marginTop: '20px'}} />
+          <input type="text" placeholder={
+            idiom === 'ESP' ? 'Nombre' : 'Name'
+          } className='inputContact' {...register('name')} />
+          <input type="email" placeholder={
+            idiom === 'ESP' ? 'Correo' : 'Email'
+          } className='inputContact' {...register('email')} style={{marginTop: '20px'}} />
         </div>
-        <textarea className='message' {...register('message')} placeholder='Message'></textarea>
+        <textarea className='message' {...register('message')} placeholder={idiom === 'ESP' ? 'Mensaje' : 'Message'}></textarea>
         <div className="errors">
         {errors.email?.type === 'required' && 
-        <span className='msgError'>The name is required</span>}
+        <span className='msgError'>
+          {idiom === 'ESP' ? 'El nombre es requerido' : 'The name is required'}
+          </span>}
         {errors.email?.type === 'required' && 
-        <span className='msgError'>El email no es válido</span>}
+        <span className='msgError'>
+          {idiom === 'ESP' ? 'El email no es válido' : 'The email is invalid'}
+          </span>}
         {errors.email?.type === 'required' && 
-        <span className='msgError'>The message is required</span>}
+        <span className='msgError'>
+          {idiom === 'ESP' ? 'El mensaje es requerido' : 'The message is required'}
+          </span>}
         </div>
         {success && <span className="msgSuccess">
-          Message sent, we will contact you
+          {
+            idiom === 'ESP' ? 'Mensaje enviado, nos contactarémos con usted' : 'Message sent, we will contact you'
+          }
         </span>}
         <div className="buttonDiv">
-          <button className='submitContact' type='submit'>Submit</button>
+          <button className='submitContact' type='submit'>
+            {
+              idiom === 'ESP'
+              ?
+              'ENVIAR'
+              :
+              'SUBMIT'
+            }
+          </button>
         </div>
       </form>
     </ContactStyled>

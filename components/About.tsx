@@ -4,6 +4,7 @@ import Image from 'next/image'
 import teamWork from '../public/img/teamwork.png'
 import creativity from '../public/img/creativity.png'
 import pasion from '../public/img/pasion.png'
+import { useSelector } from 'react-redux'
 
 const About: NextPage = () => {
   const AboutStyled = styled.section`
@@ -103,10 +104,19 @@ const About: NextPage = () => {
       }
     }
   `
+  const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
 
   return (
     <AboutStyled id='about'>
-      <h3 className='titleAbout'>ABOUT US</h3>
+      <h3 className='titleAbout'>
+        {
+          idiom === 'ESP'
+          ?
+          'NOSOTROS'
+          :
+          'ABOUT US'
+        }
+        </h3>
       <div className="contentAbout">
         <div className="divAbout">
           <div className="circle">
@@ -114,10 +124,23 @@ const About: NextPage = () => {
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
-            TEAMWORK
+            {
+              idiom === 'ESP'
+              ?
+              'EQUIPO'
+              :
+              'TEAMWORK'
+            }
           </h5>
           <p className='textDiv'>
-          Bacord’s team is full of excellent professionals, the top ones in their respective fields of work, always giving their best. Each new game is a challenge, where creativity plays a key role.          </p>
+            {
+              idiom === 'ESP'
+              ?
+              'El equipo de Bacord está plagado de excelentes integrantes. Los mejores en su área. Dejando todo en la cancha el alma y el corazón. Cada juego nuevo es un desafío, donde la creatividad juega un papel importante al momento de lanzar una nueva idea, intentando todos los días lograr la excelencia.'
+              :
+              'Bacord’s team is full of excellent professionals, the top ones in their respective fields of work, always giving their best. Each new game is a challenge, where creativity plays a key role.'
+            }
+                    </p>
           </div>
         </div>
         <div className="divAbout">
@@ -126,10 +149,22 @@ const About: NextPage = () => {
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
-            CREATIVITY
+            {
+              idiom === 'ESP'
+              ?
+              'CREATIVIDAD'
+              :
+              'CREATIVITY'
+            }
           </h5>
           <p className='textDiv'>
-          Each idea is a whole new universe to explore. We begin every project with an open mind and we finish it with a colorful landscape. Nothing is taken for granted, we’re always thinking outside the box.            </p>
+          {
+            idiom === 'ESP'
+            ?
+            'Cada idea es un mundo. Cada mundo es magia. Encaramos cada proyecto con la mente en blanco y lo terminamos con un paisaje de colores. Nada esta por sentado y todo es nuevo. Siempre pensando “Out of the box”'
+            :
+            'Each idea is a whole new universe to explore. We begin every project with an open mind and we finish it with a colorful landscape. Nothing is taken for granted, we’re always thinking outside the box.'
+          }            </p>
           </div>
         </div>
         <div className="divAbout">
@@ -138,10 +173,22 @@ const About: NextPage = () => {
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
-            PASSION
+            {
+              idiom === 'ESP'
+              ?
+              'PASIÓN'
+              :
+              'PASSION'
+            }
           </h5>
           <p className='textDiv'>
-          If there’s any word to define an argentinian team, that would be “passion”. We passionately take on every new project and we take care of every detail along the way. If you don’t know us, with just knowing where we’re from its enough to describe us.          </p>
+          {
+            idiom === 'ESP'
+            ?
+            'Si una característica es importante dentro de un equipo Argentino es la pasión con la que hacemos cada trabajo, con la que nos levantamos cada día, con la que emprendemos para lograr nuestros sueños, eso nos caracteriza y si no nos conocer, ya con saber de donde somos se demuestra que nuestra pasión la llevamos a cada rincón del mundo. '
+            :
+            'If there’s any word to define an argentinian team, that would be “passion”. We passionately take on every new project and we take care of every detail along the way. If you don’t know us, with just knowing where we’re from its enough to describe us.'
+          }          </p>
           </div>
         </div>
       </div> 

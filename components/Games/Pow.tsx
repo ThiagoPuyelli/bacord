@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import styled from '@emotion/styled'
 import powLogo from '../../public/img/pow_logo_3.png'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
 
 const Pow: NextPage = () => {
   const PowStyled = styled.div`
@@ -79,14 +80,42 @@ const Pow: NextPage = () => {
       }
     }
   `
+
+  const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
+  
   return (
     <PowStyled>
       <div className="content">
         <div className="contentPow">
           <p className="textPow">
-          Pow Gaming is a B2B solution that is developing an e-sports platform for the management of multiplayer casual gaming. This solution aims to satisfy the need for various industries, including Gambling, Tournaments, online events, casinos, content for large audiences and partnership programs.          </p>
-          <button className="buttonPow">OUR GAMES</button>
-          <button className="buttonPow">POW GAMING WEBSITE</button>
+            {
+              idiom === 'ESP'
+              ?
+              'Pow Gaming es una solucion B2B que desarrolla una plataforma de e-sports para la gestión de partidas multiusuario de juegos casuales. Esta solucion está pensada para satisfacer la necesidad de diversas industrias.Gambling, Torneos y eventos en linea, casinos, apuestas, contenido para grandes audiencias, Programas de fidelidad. '
+              :
+              'Pow Gaming is a B2B solution that is developing an e-sports platform for the management of multiplayer casual gaming. This solution aims to satisfy the need for various industries, including Gambling, Tournaments, online events, casinos, content for large audiences and partnership programs.          '
+            }
+          </p>
+          <button className="buttonPow">
+            {
+              idiom === 'ESP'
+              ?
+              'OTROS JUEGOS'
+              :
+              'OUR GAMES'
+            }
+          </button>
+          <button className="buttonPow">
+            <a href="https://www.pow-gaming.com/" target='_blank'>
+              {
+                idiom === 'ESP'
+                ?
+                'SITIO DE POWGAMING'
+                :
+                'POWGAMING WEB SITE'
+              }
+            </a>
+          </button>
         </div>
         <div className="imagePow">
           <Image src={powLogo} alt='logo pow' />
@@ -98,9 +127,34 @@ const Pow: NextPage = () => {
         </div>
         <div className="contentPow">
           <p className="textPow">
-          Pow Gaming is a B2B solution that is developing an e-sports platform for the management of multiplayer casual gaming. This solution aims to satisfy the need for various industries, including Gambling, Tournaments, online events, casinos, content for large audiences and partnership programs.          </p>
-          <button className="buttonPow">OUR GAMES</button>
-          <button className="buttonPow">POW GAMING WEBSITE</button>
+            {
+              idiom === 'ESP'
+              ?
+              'Pow Gaming es una solucion B2B que desarrolla una plataforma de e-sports para la gestión de partidas multiusuario de juegos casuales. Esta solucion está pensada para satisfacer la necesidad de diversas industrias.Gambling, Torneos y eventos en linea, casinos, apuestas, contenido para grandes audiencias, Programas de fidelidad. '
+              :
+              'Pow Gaming is a B2B solution that is developing an e-sports platform for the management of multiplayer casual gaming. This solution aims to satisfy the need for various industries, including Gambling, Tournaments, online events, casinos, content for large audiences and partnership programs.          '
+            }
+          </p>
+          <button className="buttonPow">
+            {
+              idiom === 'ESP'
+              ?
+              'OTROS JUEGOS'
+              :
+              'OUR GAMES'
+            }
+          </button>
+          <button className="buttonPow">
+            <a href="https://www.pow-gaming.com/" target='_blank'>
+              {
+                idiom === 'ESP'
+                ?
+                'SITIO DE POWGAMING'
+                :
+                'POWGAMING WEB SITE'
+              }
+            </a>
+          </button>
         </div>
       </div>
     </PowStyled>
