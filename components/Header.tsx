@@ -103,7 +103,7 @@ const Header: NextPage = () => {
       margin-left: 15px;
       transition: 300ms all;
     }
-    @media (max-width: 848px) {
+    @media (max-width: 902px) {
       .menu {
         display: block;
       }

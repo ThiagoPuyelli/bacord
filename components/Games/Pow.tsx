@@ -106,7 +106,7 @@ const Pow: NextPage = () => {
             }
           </button>
           <button className="buttonPow">
-            <a href="https://www.pow-gaming.com/" target='_blank'>
+            <a href="https://www.pow-gaming.com/" target='_blank' rel='noreferrer'>
               {
                 idiom === 'ESP'
                 ?
@@ -145,7 +145,7 @@ const Pow: NextPage = () => {
             }
           </button>
           <button className="buttonPow">
-            <a href="https://www.pow-gaming.com/" target='_blank'>
+            <a href="https://www.pow-gaming.com/" target='_blank' rel='noreferrer'>
               {
                 idiom === 'ESP'
                 ?

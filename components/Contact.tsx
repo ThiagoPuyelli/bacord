@@ -117,8 +117,9 @@ const Contact: NextPage = () => {
   const submitForm = async (data: any) => {
     const contactForm: HTMLFormElement|null = document.querySelector('.contactForm')
     if (contactForm) {
-      const sendMail = await emailjs.sendForm('service_owdnfby', 'template_y55xkuq', contactForm, 'CqWIk1GaVBVy2E-h6')
-      if (sendMail.text === 'OK') {
+      const firstMail = await emailjs.sendForm('service_owdnfby', 'template_y55xkuq', contactForm, 'CqWIk1GaVBVy2E-h6')
+      const secondMail = await emailjs.sendForm('service_1p97hvn', 'template_13zpr8w', contactForm, 'AL9uUGVCxMXp24hNL')
+      if (firstMail.text === 'OK' && secondMail.text === 'OK') {
         contactForm.reset()
         setSuccess(true)
       }
