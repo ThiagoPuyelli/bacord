@@ -81,6 +81,17 @@ const Team = ({members}: { members: Member[] } ) => {
               height: 300px !important;
               margin-top: -35px !important;
             }
+            .contentImage.alejandro * {
+              margin-top: -35px !important;
+            }
+            .contentImage.alejandro {
+              width: 182px;
+              margin-top: 39px;
+              margin-left: 10px;
+            }
+            .contentImage.lucas {
+              margin-top: -100px;
+            }
           }
           .textMember {
             background: #b60f25;
@@ -94,7 +105,7 @@ const Team = ({members}: { members: Member[] } ) => {
               text-align: center;
               color: white;
               font-family: rubik; 
-              font-size: 14px;
+              font-size: 12px;
             }
           }
         }
@@ -198,13 +209,18 @@ const Team = ({members}: { members: Member[] } ) => {
             }
 
             const className = () => {
-              if (member.name === 'Gonzalo Cantarelli') {
-                return 'contentImage gonzalo'
-              } else if (member.name === 'Pablo'){
-                return 'contentImage pablo'
-              } else {
-                return 'contentImage'
-              }
+              switch (member.name) {
+                case 'Gonzalo Cantarelli':
+                  return 'contentImage gonzalo'
+                case 'Pablo': 
+                  return 'contentImage pablo'
+                case 'Alejandro Gonza Cordova':
+                  return 'contentImage alejandro'
+                case 'Lucas Abratti':
+                  return 'contentImage lucas'
+                default:
+                }
+              return 'contentImage'
             }
             return (
               <div className={"contentGame " + member.rol} key={member.name + i}>

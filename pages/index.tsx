@@ -22,12 +22,16 @@ import ThiagoPuyelli from '../public/img/Team/Thiago.jpeg'
 import GonzaloCantarelli from '../public/img/Team/GonzaloCantarelli.jpg'
 import SwimmableBee912 from '../public/img/Team/SwimmableBee912.png'
 import Pablo from '../public/img/Team/Pablo.jpg'
+import Hessai from '../public/img/Team/Hessai.png'
+import Alejandro from '../public/img/Team/Alejandro.png'
+import Lucas from '../public/img/Team/Lucas.jpg'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
 
 const Home: NextPage = () => {
   const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
   
+  console.log('pepe')
   return (
     <div>
       <Head>
@@ -197,6 +201,36 @@ const Home: NextPage = () => {
             { title: idiom === 'ESP' ? 'Alguien' : 'Somebody', key:'Somebody', value: 20, color: '#FD9A28' },
             { title: idiom === 'ESP' ? 'Normal' : 'Normal', key:'Normal', value: 30, color: '#FF5126' },
             { title: idiom === 'ESP' ? 'Nadie' : 'Nobody', key:'Nobody', value: 50, color: '#d50000' }
+          ]
+        },
+        {
+          image: Hessai,
+          name: 'Hessai',
+          rol: idiom === 'ESP' ? 'Artista' : 'Artist',
+          data: [
+            { title: idiom === 'ESP' ? 'Nerd' : 'Nerd', key:'Nerd', value: 50, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'Ordenada' : 'Tidy', key:'Tidy', value: 20, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Creatividad' : 'Creative', key:'Creative', value: 30, color: '#d50000' }
+          ]
+        },
+        {
+          image: Alejandro,
+          name: 'Alejandro Gonza Cordova',
+          rol: idiom === 'ESP' ? 'Programador' : 'Programmer',
+          data: [
+            { title: idiom === 'ESP' ? 'Paciente' : 'Patient', key:'Patient', value: 25, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'Gamer' : 'Gamer', key:'Gamer', value: 50, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Estratega' : 'Strategist', key:'Strategist', value: 25, color: '#d50000' }
+          ]
+        },
+        {
+          image: Lucas,
+          name: 'Lucas Abratti',
+          rol: idiom === 'ESP' ? 'Programador' : 'Programmer',
+          data: [
+            { title: idiom === 'ESP' ? 'Pasion' : 'Pasion', key:'Pasion', value: 40, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'Codigo' : 'Code', key:'Code', value: 30, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Aprendiz' : 'Learner', key:'Learner', value: 30, color: '#d50000' }
           ]
         }
       ]}/>
