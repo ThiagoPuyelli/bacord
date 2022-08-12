@@ -6,9 +6,7 @@ import Work from '../components/Work'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import Team from '../components/Team'
-import Max from '../public/img/Team/MaxVanHauvart.jpg'
 import Sirce from '../public/img/Team/Sirce.png'
-import Sapukai from '../public/img/Team/Sapukai.jpg'
 import Alejo from '../public/img/Team/Alejo.png'
 import Carlos from '../public/img/Team/Carlos.jpg'
 import Mati from '../public/img/Team/Mati.jpg'
@@ -84,16 +82,6 @@ const Home: NextPage = () => {
           ]
         },
         {
-          image: Max,
-          name: 'Max Van Hauvart',
-          rol: idiom === 'ESP' ? 'Narrative' : 'Narrativa',
-          data: [
-            { title: 'Don Satur', key:'Don Satur', value: 33, color: '#FD9A28' },
-            { title: idiom === 'ESP' ? 'Historia' : 'History', key:'History', value: 33, color: '#FF5126' },
-            { title: idiom === 'ESP' ? 'Cine' : 'Cinema', key:'Cinema', value: 33, color: '#d50000' }
-          ]
-        },
-        {
           image: Sirce,
           name: 'Sirce',
           rol: idiom === 'ESP' ? 'Artista' : 'Artist',
@@ -101,16 +89,6 @@ const Home: NextPage = () => {
             { title: idiom === 'ESP' ? 'Manija' : 'Anxious', key:'Anxious', value: 30, color: '#FD9A28' },
             { title: idiom === 'ESP' ? 'Cooperación' : 'Cooperation', key:'Cooperation', value: 50, color: '#FF5126' },
             { title: idiom === 'ESP' ? 'Horror existencial' : 'Existential horror', key:'Existential horror', value: 20, color: '#d50000' }
-          ]
-        },
-        {
-          image: Sapukai,
-          name: 'Sapukái',
-          rol: 'UI/UX',
-          data: [
-            { title: idiom === 'ESP' ? 'Diseño gráfico' : 'Graphic design', key:'Graphic design', value: 33, color: '#FD9A28' },
-            { title: 'Pinterest', key:'Pinterest', value: 33, color: '#FF5126' },
-            { title: idiom === 'ESP' ? 'Videojuegos' : 'Videogames', key:'Videogames', value: 33, color: '#d50000' }
           ]
         },
         {
