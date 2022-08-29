@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import advaImage from '../../public/img/adva.png'
 import Image from 'next/image'
 import Link from "next/link"
+import { useSelector } from "react-redux"
 
 const Adva = () => {
   const AdvaStyled = styled.div`
@@ -47,6 +48,8 @@ const Adva = () => {
       }
     }
   `
+
+  const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
   
   return (
     <AdvaStyled>
@@ -59,7 +62,13 @@ const Adva = () => {
       <div className="linkAdva">
         <Link href='https://www.adva.vg/' passHref>
             <a href="" target='_blank'>
-                Go to web site
+                {
+                    idiom === 'ESP'
+                    ?
+                    'Entra a la web'
+                    :
+                    'Go to web site'
+                }
             </a>
         </Link>
       </div>
