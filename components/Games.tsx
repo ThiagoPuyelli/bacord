@@ -17,12 +17,14 @@ import SoccerHeading from '../public/img/LogosJuegos/4_SoccerHeading_logo.png'
 import CrashBattle from '../public/img/LogosJuegos/5_CrashBattle_logo.png'
 import RealChess from '../public/img/LogosJuegos/6_RealChess_logo.png'
 import RealPoll from '../public/img/LogosJuegos/13_RealPool_logo.png'
+import Adva from './Games/Adva'
 
 const Games: NextPage = () => {
   
   return (
     <section id='games'>
       <Maki />
+      <Adva />
       <Pow />
       <Logos logos={[
         {

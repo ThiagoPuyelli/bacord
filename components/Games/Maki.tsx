@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 const Maki: NextPage = () =>  {
   const MakiStyled = styled.div` 
     height: 750px;
+    margin-bottom: 60px;
     .imageBottom {
       position: absolute;
       z-index: -1;
