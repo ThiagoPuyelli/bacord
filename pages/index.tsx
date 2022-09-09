@@ -23,6 +23,7 @@ import Pablo from '../public/img/Team/Pablo.jpg'
 import Hessai from '../public/img/Team/Hessai.png'
 import Alejandro from '../public/img/Team/Alejandro.png'
 import Lucas from '../public/img/Team/Lucas.jpg'
+import Mario from '../public/img/Team/Mario.jpg'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
 
@@ -209,6 +210,16 @@ const Home: NextPage = () => {
             { title: idiom === 'ESP' ? 'Pasion' : 'Pasion', key:'Pasion', value: 40, color: '#FD9A28' },
             { title: idiom === 'ESP' ? 'Codigo' : 'Code', key:'Code', value: 30, color: '#FF5126' },
             { title: idiom === 'ESP' ? 'Aprendiz' : 'Learner', key:'Learner', value: 30, color: '#d50000' }
+          ]
+        },
+        {
+          image: Mario,
+          name: 'Mario Laverde',
+          rol: idiom === 'ESP' ? 'Programador' : 'Programmer',
+          data: [
+            { title: idiom === 'ESP' ? 'Curiosidad' : 'Curiosity', key:'Curiosity', value: 30, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'Inventiva' : 'Inventiveness', key:'Inventiveness', value: 40, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Planeación' : 'Planning', key:'Planning', value: 30, color: '#d50000' }
           ]
         }
       ]}/>

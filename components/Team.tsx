@@ -92,6 +92,12 @@ const Team = ({members}: { members: Member[] } ) => {
             .contentImage.lucas {
               margin-top: -100px;
             }
+            .contentImage.mario {
+              margin-top: -20px;
+            }
+            .contentImage.mario * {
+              transform: scale(0.999);
+            }
           }
           .textMember {
             background: #b60f25;
@@ -218,6 +224,8 @@ const Team = ({members}: { members: Member[] } ) => {
                   return 'contentImage alejandro'
                 case 'Lucas Abratti':
                   return 'contentImage lucas'
+                case 'Mario Laverde':
+                  return 'contentImage mario'
                 default:
                 }
               return 'contentImage'
