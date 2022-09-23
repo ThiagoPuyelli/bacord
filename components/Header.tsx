@@ -2,9 +2,13 @@ import type { NextPage } from 'next'
 import styled from '@emotion/styled'
 import Image from 'next/image'
 import twitter from '../public/img/twitter.png'
+import twitterWhite from '../public/img/twitterWhite.png'
 import facebook from '../public/img/facebook.png'
+import facebookWhite from '../public/img/facebookWhite.png'
 import instagram from '../public/img/instagram.png'
+import instagramWhite from '../public/img/instagramWhite.png'
 import linkedin from '../public/img/linkedin.png'
+import linkedinWhite from '../public/img/linkedinWhite.png'
 import logo from '../public/img/logo_bacord.png'
 import LinkNext from 'next/link'
 import { Link, animateScroll as scroll } from 'react-scroll'
@@ -68,6 +72,9 @@ const Header: NextPage = () => {
         border-radius: 999px;
         cursor: pointer;
         transition: 300ms all;
+        .imageWhite {
+          display: none;
+        }
         * {
           width: 100%;
         }
@@ -117,11 +124,22 @@ const Header: NextPage = () => {
           display: none;
         }
       }
-      .right .socialMedia {
-        display: none;
-      }
-      .right .idiomButton {
-        margin-top: -20px;
+      .right{ 
+        .socialMedia {
+          width: 25px;
+          height: 25px;
+          padding: 0px;
+          background: none;
+          .imageRed {
+            display: none;
+          }
+          .imageWhite {
+            display: block;
+          }
+        }
+        .idiomButton {
+          margin-top: -5px;
+        }
       }
     }
   `
@@ -181,22 +199,50 @@ const Header: NextPage = () => {
       <div className="right">
         <div className="socialMedia">
           <LinkNext href='https://www.facebook.com/bacordgames'>
-            <a href="https://www.facebook.com/bacordgames" target='_blank' rel='noreferrer'><Image src={facebook} alt='facebook'/></a>
+            <a href="https://www.facebook.com/bacordgames" target='_blank' rel='noreferrer'>
+              <div className='imageRed'>
+                <Image src={facebook} alt='facebook'/>
+              </div>
+              <div className="imageWhite">
+                <Image src={facebookWhite} alt='facebook' />
+              </div>
+            </a>
           </LinkNext>
         </div>  
         <div className="socialMedia">
           <LinkNext href='https://www.instagram.com/bacordgames/'  passHref>
-            <a href="https://www.instagram.com/bacordgames/" target='_blank' rel='noreferrer'><Image src={instagram} alt='instagram'/></a>
+            <a href="https://www.instagram.com/bacordgames/" target='_blank' rel='noreferrer'>
+              <div className='imageRed'>
+                <Image src={instagram} alt='instagram'/>
+              </div>
+              <div className="imageWhite">
+                <Image src={instagramWhite} alt='instagram' />
+              </div>
+            </a>
           </LinkNext>
         </div>
         <div className="socialMedia">
           <LinkNext href='https://twitter.com/BacordGames' passHref>
-            <a href="https://twitter.com/BacordGames" target='_blank' rel='noreferrer'><Image src={twitter} alt='twitter'/></a>
+            <a href="https://twitter.com/BacordGames" target='_blank' rel='noreferrer'>
+              <div className='imageRed'>
+                <Image src={twitter} alt='twitter'/>
+              </div>
+              <div className="imageWhite">
+                <Image src={twitterWhite} alt='twitter' />
+              </div>
+            </a>
           </LinkNext>
         </div>
         <div className="socialMedia">
           <LinkNext href='https://www.linkedin.com/company/bacordgames/' passHref>
-            <a href="https://www.linkedin.com/company/bacordgames/" target='_blank' rel='noreferrer'><Image src={linkedin} alt='linkedin'/></a>
+            <a href="https://www.linkedin.com/company/bacordgames/" target='_blank' rel='noreferrer'>
+            <div className='imageRed'>
+                <Image src={linkedin} alt='linkedin'/>
+              </div>
+              <div className="imageWhite">
+                <Image src={linkedinWhite} alt='linkedin' />
+              </div>
+            </a>
           </LinkNext>
         </div>
         <div className="idiomButton">
