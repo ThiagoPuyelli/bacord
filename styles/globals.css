@@ -60,6 +60,12 @@ a {
   height: 100vh;
 }
 
+.gaucho {
+  background-image: url(../public/img/gaucho.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 @keyframes updown {
   0% {
     transform: translateY(10px);

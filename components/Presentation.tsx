@@ -40,6 +40,12 @@ const Presentation: NextPage = () => {
       margin-right: -100px;
       animation: updown 2s ease-in-out infinite alternate-reverse both;
     }
+    .logoPresentation * {
+      transition: 800ms all;
+    }
+    .logoPresentation:hover * {
+      transform: rotateY(180deg);
+    }
     @media (max-width: 1100px) {
       display: flex;
       flex-flow: column wrap;

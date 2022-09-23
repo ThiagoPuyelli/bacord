@@ -14,7 +14,6 @@ const Logos = ({logos}: { logos: Logo[]}) => {
   const LogosStyled = styled.div`
     overflow: hidden;
     height: 270px;
-    margin-top: 80px;
     .button {
       position: absolute;
       margin-top: 80px;

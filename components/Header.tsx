@@ -27,6 +27,7 @@ const Header: NextPage = () => {
     background: #b60f25;
     box-shadow: 0px 0px 4px #b60f25;
     z-index: 3;
+    height: 70px;
     .left {
       display: flex;
       .logo {
@@ -115,6 +116,12 @@ const Header: NextPage = () => {
         * {
           display: none;
         }
+      }
+      .right .socialMedia {
+        display: none;
+      }
+      .right .idiomButton {
+        margin-top: -20px;
       }
     }
   `

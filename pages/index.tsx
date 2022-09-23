@@ -24,6 +24,8 @@ import Hessai from '../public/img/Team/Hessai.png'
 import Alejandro from '../public/img/Team/Alejandro.png'
 import Lucas from '../public/img/Team/Lucas.jpg'
 import Mario from '../public/img/Team/Mario.jpg'
+import Nadiko from '../public/img/Team/Nadiko.jpeg'
+import Francisco from '../public/img/Team/Francisco.jpeg'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
 
@@ -220,6 +222,26 @@ const Home: NextPage = () => {
             { title: idiom === 'ESP' ? 'Curiosidad' : 'Curiosity', key:'Curiosity', value: 30, color: '#FD9A28' },
             { title: idiom === 'ESP' ? 'Inventiva' : 'Inventiveness', key:'Inventiveness', value: 40, color: '#FF5126' },
             { title: idiom === 'ESP' ? 'Planeación' : 'Planning', key:'Planning', value: 30, color: '#d50000' }
+          ]
+        },
+        {
+          image: Nadiko,
+          name: 'Nadina Tavares',
+          rol: idiom === 'ESP' ? 'Artista' : 'Artist',
+          data: [
+            { title: idiom === 'ESP' ? 'Curiosidad' : 'Curious', key:'Curious', value: 33, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'Creatividad' : 'Creative', key:'Creative', value: 33, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Ansiedad' : 'Anxious', key:'Anxious', value: 33, color: '#d50000' }
+          ]
+        },
+        {
+          image: Francisco,
+          name: 'Francisco Della Puppa',
+          rol: idiom === 'ESP' ? 'Artista' : 'Artist',
+          data: [
+            { title: idiom === 'ESP' ? 'Pelis' : 'Movies', key:'Movies', value: 33, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'Magic' : 'Magic', key:'Magic', value: 33, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Boke' : 'Boke', key:'Boke', value: 33, color: '#d50000' }
           ]
         }
       ]}/>

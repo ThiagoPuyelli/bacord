@@ -98,6 +98,13 @@ const Team = ({members}: { members: Member[] } ) => {
             .contentImage.mario * {
               transform: scale(0.999);
             }
+            .contentImage.nadina {
+              margin-top: -30px;
+            }
+            .contentImage.puppa {
+              transform: scale(1.4, 1.4);
+              margin-left: 10px;
+            }
           }
           .textMember {
             background: #b60f25;
@@ -226,6 +233,10 @@ const Team = ({members}: { members: Member[] } ) => {
                   return 'contentImage lucas'
                 case 'Mario Laverde':
                   return 'contentImage mario'
+                case 'Nadina Tavares':
+                  return 'contentImage nadina'
+                case 'Francisco Della Puppa':
+                  return 'contentImage puppa'
                 default:
                 }
               return 'contentImage'

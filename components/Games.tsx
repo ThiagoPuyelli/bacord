@@ -18,6 +18,8 @@ import CrashBattle from '../public/img/LogosJuegos/5_CrashBattle_logo.png'
 import RealChess from '../public/img/LogosJuegos/6_RealChess_logo.png'
 import RealPoll from '../public/img/LogosJuegos/13_RealPool_logo.png'
 import Adva from './Games/Adva'
+import EBacord from './Games/EBacord'
+import Gaucho from './Games/Gaucho'
 
 const Games: NextPage = () => {
   
@@ -26,6 +28,7 @@ const Games: NextPage = () => {
       <Maki />
       <Adva />
       <Pow />
+      <Gaucho />
       <Logos logos={[
         {
           image: Eggsplosion,
@@ -88,6 +91,7 @@ const Games: NextPage = () => {
           name: 'Real Poll'
         }
       ]}/>
+      <EBacord />
     </section>
   )
 }
