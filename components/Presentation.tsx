@@ -44,7 +44,7 @@ const Presentation: NextPage = () => {
       transition: 800ms all;
     }
     .logoPresentation:hover * {
-      transform: rotateY(180deg);
+      transform: rotateY(-180deg);
     }
     @media (max-width: 1100px) {
       display: flex;

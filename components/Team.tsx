@@ -105,6 +105,9 @@ const Team = ({members}: { members: Member[] } ) => {
               transform: scale(1.4, 1.4);
               margin-left: 10px;
             }
+            .contentImage.azu {
+              margin-top: -33px;
+            }
           }
           .textMember {
             background: #b60f25;
@@ -237,6 +240,8 @@ const Team = ({members}: { members: Member[] } ) => {
                   return 'contentImage nadina'
                 case 'Francisco Della Puppa':
                   return 'contentImage puppa'
+                case 'Azu':
+                  return 'contentImage azu'
                 default:
                 }
               return 'contentImage'

@@ -41,9 +41,12 @@ const Gaucho = () => {
     }
   }*/
 
+  setTimeout(() => {
+    calculateHeight()
+  }, 100)
+  
   useEffect(() => {
     setWidth(window.innerWidth)
-    calculateHeight()
     //calculateVideo()
     window.addEventListener('resize', () => {
         calculateHeight()

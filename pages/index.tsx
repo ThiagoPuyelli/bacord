@@ -26,6 +26,7 @@ import Lucas from '../public/img/Team/Lucas.jpg'
 import Mario from '../public/img/Team/Mario.jpg'
 import Nadiko from '../public/img/Team/Nadiko.jpeg'
 import Francisco from '../public/img/Team/Francisco.jpeg'
+import Azul from '../public/img/Team/Azul.png'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
 
@@ -242,6 +243,16 @@ const Home: NextPage = () => {
             { title: idiom === 'ESP' ? 'Pelis' : 'Movies', key:'Movies', value: 33, color: '#FD9A28' },
             { title: idiom === 'ESP' ? 'Magic' : 'Magic', key:'Magic', value: 33, color: '#FF5126' },
             { title: idiom === 'ESP' ? 'Boke' : 'Boke', key:'Boke', value: 33, color: '#d50000' }
+          ]
+        },
+        {
+          image: Azul,
+          name: 'Azu',
+          rol: idiom === 'ESP' ? 'Artista' : 'Artist',
+          data: [
+            { title: idiom === 'ESP' ? 'Amor' : 'Love', key:'Love', value: 40, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'Cafeína' : 'Caffeine', key:'Caffeine', value: 30, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Arte' : 'Art', key:'Art', value: 30, color: '#d50000' }
           ]
         }
       ]}/>
