@@ -25,7 +25,6 @@ import Alejandro from '../public/img/Team/Alejandro.png'
 import Lucas from '../public/img/Team/Lucas.jpg'
 import Mario from '../public/img/Team/Mario.jpg'
 import Nadiko from '../public/img/Team/Nadiko.jpeg'
-import Francisco from '../public/img/Team/Francisco.jpeg'
 import Azul from '../public/img/Team/Azul.png'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
@@ -233,16 +232,6 @@ const Home: NextPage = () => {
             { title: idiom === 'ESP' ? 'Curiosidad' : 'Curious', key:'Curious', value: 33, color: '#FD9A28' },
             { title: idiom === 'ESP' ? 'Creatividad' : 'Creative', key:'Creative', value: 33, color: '#FF5126' },
             { title: idiom === 'ESP' ? 'Ansiedad' : 'Anxious', key:'Anxious', value: 33, color: '#d50000' }
-          ]
-        },
-        {
-          image: Francisco,
-          name: 'Francisco Della Puppa',
-          rol: idiom === 'ESP' ? 'Artista' : 'Artist',
-          data: [
-            { title: idiom === 'ESP' ? 'Pelis' : 'Movies', key:'Movies', value: 33, color: '#FD9A28' },
-            { title: idiom === 'ESP' ? 'Magic' : 'Magic', key:'Magic', value: 33, color: '#FF5126' },
-            { title: idiom === 'ESP' ? 'Boke' : 'Boke', key:'Boke', value: 33, color: '#d50000' }
           ]
         },
         {

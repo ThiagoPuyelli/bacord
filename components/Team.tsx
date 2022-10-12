@@ -101,10 +101,6 @@ const Team = ({members}: { members: Member[] } ) => {
             .contentImage.nadina {
               margin-top: -30px;
             }
-            .contentImage.puppa {
-              transform: scale(1.4, 1.4);
-              margin-left: 10px;
-            }
             .contentImage.azu {
               margin-top: -33px;
             }
@@ -238,8 +234,6 @@ const Team = ({members}: { members: Member[] } ) => {
                   return 'contentImage mario'
                 case 'Nadina Tavares':
                   return 'contentImage nadina'
-                case 'Francisco Della Puppa':
-                  return 'contentImage puppa'
                 case 'Azu':
                   return 'contentImage azu'
                 default:
