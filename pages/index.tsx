@@ -26,6 +26,7 @@ import Lucas from '../public/img/Team/Lucas.jpg'
 import Mario from '../public/img/Team/Mario.jpg'
 import Nadiko from '../public/img/Team/Nadiko.jpeg'
 import Azul from '../public/img/Team/Azul.png'
+import Hidalgo from '../public/img/Team/Hidalgo.jpg'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
 
@@ -242,6 +243,16 @@ const Home: NextPage = () => {
             { title: idiom === 'ESP' ? 'Amor' : 'Love', key:'Love', value: 40, color: '#FD9A28' },
             { title: idiom === 'ESP' ? 'Cafeína' : 'Caffeine', key:'Caffeine', value: 30, color: '#FF5126' },
             { title: idiom === 'ESP' ? 'Arte' : 'Art', key:'Art', value: 30, color: '#d50000' }
+          ]
+        },
+        {
+          image: Hidalgo,
+          name: 'Hidalgo',
+          rol: idiom === 'ESP' ? 'Artista' : 'Artist',
+          data: [
+            { title: idiom === 'ESP' ? 'Humor' : 'Humor', key:'Humor', value: 60, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'Conflicto existencial' : 'Existencial conflict', key:'Existencial conflict', value: 39.5, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Paciencia' : 'Patient', key:'Patient', value: 0.5, color: '#d50000' }
           ]
         }
       ]}/>

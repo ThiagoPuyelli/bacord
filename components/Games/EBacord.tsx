@@ -8,7 +8,7 @@ const EBacord = () => {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background: linear-gradient(to left, #ea1c24, #990a24);
+    background: linear-gradient(#4467ac, #19224f);
     align-items: center;
     .ebacordImage {
       width: 400px;
