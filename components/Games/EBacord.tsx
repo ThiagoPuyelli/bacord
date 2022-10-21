@@ -1,14 +1,15 @@
 import styled from "@emotion/styled"
 import LogoEBacord from '../../public/img/LogoEBacord.png'
+import BacordSeaside from '../../public/img/BacordSeaside.png'
+import BacordLair from '../../public/img/BacordLair.png'
 import Image from "next/image"
 import { useSelector } from "react-redux"
 
 const EBacord = () => {
-  const EBacordStyled = styled.div`
+  const ContainerStyled = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background: linear-gradient(#4467ac, #19224f);
     align-items: center;
     .ebacordImage {
       width: 400px;
@@ -36,18 +37,32 @@ const EBacord = () => {
       }
     }
   `
+
+  const ContentStyled = styled.div`
+    background: linear-gradient(#1d3258, #3bbfce, #289850);
+  `
   const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
 
   
   return (
-    <EBacordStyled>
-      <div className="ebacordImage">
-        <Image src={LogoEBacord} alt='Logo e-bacord' />
-      </div>
-      <h1 className='title'>
-        {idiom === 'ENG' ? 'Comming soon' : 'Proximamente'}
-      </h1>
-    </EBacordStyled>
+    <ContentStyled>
+      <ContainerStyled>
+        <div className="ebacordImage">
+          <Image src={LogoEBacord} alt='Logo e-bacord' />
+        </div>
+      </ContainerStyled>
+      <ContainerStyled>
+        <div className="ebacordImage">
+          <Image src={BacordSeaside} alt='Logo e-bacord' />
+        </div>
+      </ContainerStyled>
+      <ContainerStyled>
+        <div className="ebacordImage">
+          <Image src={BacordLair} alt='Logo e-bacord' />
+        </div>
+      </ContainerStyled>
+    </ContentStyled>
+    
   )
 }
 
