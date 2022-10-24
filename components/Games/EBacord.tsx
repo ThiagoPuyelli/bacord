@@ -11,6 +11,7 @@ const EBacord = () => {
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
     .ebacordImage {
       width: 400px;
     }
@@ -38,30 +39,44 @@ const EBacord = () => {
     }
   `
 
-  const ContentStyled = styled.div`
-    background: linear-gradient(#1d3258, #3bbfce, #289850);
-  `
   const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
 
   
   return (
-    <ContentStyled>
-      <ContainerStyled>
+    <div style={{
+      marginTop: '80px'
+    }}>
+      <h1 className='titleComix' style={{
+        textAlign: 'center'
+      }}>
+        {idiom === 'ESP' ? 'PROXIMAMENTE' : 'COMMING SOON'}
+      </h1>
+      <ContainerStyled style={{
+          background: '#1d3258'
+        }}>
         <div className="ebacordImage">
           <Image src={LogoEBacord} alt='Logo e-bacord' />
         </div>
       </ContainerStyled>
-      <ContainerStyled>
-        <div className="ebacordImage">
+      <ContainerStyled style={{
+          background: '#3bbfce'
+        }}>
+        <div className="ebacordImage" style={{
+          transform: 'scale(1.3, 1.3)'
+        }}>
           <Image src={BacordSeaside} alt='Logo e-bacord' />
         </div>
       </ContainerStyled>
-      <ContainerStyled>
-        <div className="ebacordImage">
+      <ContainerStyled style={{
+          background: '#289850'
+        }}>
+        <div className="ebacordImage" style={{
+          transform: 'scale(1.3, 1.3)'
+        }}>
           <Image src={BacordLair} alt='Logo e-bacord' />
         </div>
       </ContainerStyled>
-    </ContentStyled>
+    </div>
     
   )
 }
