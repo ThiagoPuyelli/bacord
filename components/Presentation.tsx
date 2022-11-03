@@ -72,7 +72,12 @@ const Presentation: NextPage = () => {
       .contentMaki {
         width: 100% !important;
         margin: 0px;
-        margin-top: -100px;
+        margin-top: -190px;
+      }
+      .makiAnimation {
+        background-size: 180px;
+        width: 180px;
+        height: 180px;
       }
     }
 
@@ -81,7 +86,16 @@ const Presentation: NextPage = () => {
         font-size: 13px;
         width: 80%;
       }
+      .makiAnimation {
+        background-size: 150px;
+        width: 150px;
+        height: 150px;
+      }
+      .contentMaki {
+        margin-top: -160px;
+      }
     }
+
   `
 
   const runMaki = () => {
