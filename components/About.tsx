@@ -46,6 +46,13 @@ const About: NextPage = () => {
         box-shadow: 0px 0px 3px var(--title);
         border: 1px solid var(--title);
         border-radius: 20px;
+        background: var(--title);
+        .titleAbout {
+          color: white;
+        }
+        .textDiv {
+          color: white;
+        }
       }
     }
     @media (max-width: 648px) {
@@ -119,8 +126,7 @@ const About: NextPage = () => {
         </h3>
       <div className="contentAbout">
         <div className="divAbout">
-          <div className="circle">
-            <Image src={teamWork}  alt='teamWork'/>
+          <div className="circle work">
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
@@ -144,8 +150,7 @@ const About: NextPage = () => {
           </div>
         </div>
         <div className="divAbout">
-          <div className="circle">
-            <Image src={creativity}  alt='creativity'/>
+          <div className="circle creativity">
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>
@@ -168,8 +173,7 @@ const About: NextPage = () => {
           </div>
         </div>
         <div className="divAbout">
-          <div className="circle">
-            <Image src={pasion}  alt='pasion'/>
+          <div className="circle pasion">
           </div>
           <div className="textAbout">
           <h5 className='titleAbout'>

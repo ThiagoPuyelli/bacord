@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import styled from '@emotion/styled'
 import Image from 'next/image'
-import bottomImg from '../public/img/fondo.svg'
 import presentationFondo from '../public/img/presentationFondo.png'
 import { useSelector } from 'react-redux'
 
@@ -35,23 +34,23 @@ const Presentation: NextPage = () => {
         box-shadow: 0px 0px 3px #980a24 inset;
       }
     }
+
     .logoPresentation {
-      width: 700px;
+      width: 600px;
       margin-right: -100px;
-      animation: updown 2s ease-in-out infinite alternate-reverse both;
+      /*animation: updown 2s ease-in-out infinite alternate-reverse both;*/
     }
     .logoPresentation * {
       transition: 800ms all;
     }
-    .logoPresentation:hover * {
-      transform: rotateY(-180deg);
+    .contentImage {
+      cursor: pointer;
     }
     @media (max-width: 1100px) {
       display: flex;
       flex-flow: column wrap;
       align-items: center; 
       .logoPresentation {
-        width: 100%;
         order: 0;
         margin: 0px;
       }
@@ -62,8 +61,18 @@ const Presentation: NextPage = () => {
       .text {
         order: 1;
         width: 50%;
-        margin-top: -30px;
         text-align: justify;
+      }
+    }
+
+    @media (max-width: 602px) {
+      .logoPresentation {
+        width: 100%;
+      }
+      .contentMaki {
+        width: 100% !important;
+        margin: 0px;
+        margin-top: -100px;
       }
     }
 
@@ -74,6 +83,24 @@ const Presentation: NextPage = () => {
       }
     }
   `
+
+  const runMaki = () => {
+    const logo: HTMLElement|null = document.querySelector('.logoPresentation')
+    const maki: HTMLElement|null = document.querySelector('.makiAnimation')
+    if (maki && logo) {
+      logo.style.animation = 'rotatePresentation 3.5s'
+      maki.style.animation = 'runMaki 3.5s'
+      if (window.innerWidth <= 602) {
+      maki.style.animation = 'runMakiResponsive 3.5s'
+      } else {
+        maki.style.animation = 'runMaki 3.5s'
+      }
+      setTimeout(() => {
+        logo.style.animation = 'none'
+        maki.style.animation = 'none'
+      }, 2000)
+    }
+  }
 
   const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
 
@@ -99,8 +126,14 @@ const Presentation: NextPage = () => {
             }
           </button>
         </div>
-        <div className="logoPresentation">
-          <Image src={presentationFondo} alt='fondo de home' />
+        <div className="contentImage" onClick={runMaki}>
+          <div className="logoPresentation">
+            <Image src={presentationFondo} alt='fondo de home' />
+          </div>
+          <div className="contentMaki">
+            <div className="makiAnimation">
+            </div>
+          </div>
         </div>
     </PresentationStyled>
   )

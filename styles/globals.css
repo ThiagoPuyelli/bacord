@@ -83,3 +83,111 @@ a {
     transform: rotateZ(360deg);
   }
 }
+
+@keyframes runMaki {
+  0% {
+    right: -240px;
+  }
+  25% {
+    background-image: url(../public/img/maki/Runcolor.gif);
+    margin-top: 40px;
+  }
+  30% {
+    margin-top: 0px;
+  }
+  35% {
+    margin-top: 40px;
+    background-image: url(../public/img/maki/Runcolor.gif);
+  }
+
+  100% {
+    right: 550px;
+  }
+}
+
+@keyframes rotatePresentation {
+  0% {
+    transform: rotateY(0deg);
+  }
+  20% {
+    transform: rotateY(0deg);
+  }
+  40% {
+    transform: rotateY(180deg);
+  }
+  60% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes runMakiResponsive {
+  0% {
+    right: -280px;
+  }
+  25% {
+    background-image: url(../public/img/maki/Runcolor.gif);
+    margin-top: 40px;
+  }
+  30% {
+    margin-top: 0px;
+  }
+  35% {
+    margin-top: 40px;
+    background-image: url(../public/img/maki/Runcolor.gif);
+  }
+
+  100% {
+    right: 700px;
+  }
+}
+
+.makiAnimation {
+  width: 200px;
+  height: 200px;
+  background-image: url(../public/img/maki/Runcolor.gif);
+  background-size: 200px;
+  transform: rotateY(180deg);
+  margin-top: 40px;
+  right: -200px;
+  position: absolute;
+}
+
+/*.contentImage:hover .makiAnimation {
+  animation: runMaki 3.5s;
+}*/
+
+.contentMaki {
+  overflow: hidden;
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  margin-top: -195px;
+  margin-left: 98px;
+}
+
+.circle.creativity {
+  background-image: url(../public/img/creativity.png);
+  background-size: 200px;
+}
+
+.circle.work {
+  background-image: url(../public/img/teamwork.png);
+  background-size: 200px;
+}
+
+.circle.pasion {
+  background-image: url(../public/img/pasion.png);
+  background-size: 200px;
+}
+
+.divAbout:hover .circle.creativity {
+  background-image: url(../public/img/creativityWhite.png);
+}
+
+.divAbout:hover .circle.work {
+  background-image: url(../public/img/teamworkWhite.png);
+}
+
+.divAbout:hover .circle.pasion {
+  background-image: url(../public/img/pasionWhite.png);
+}

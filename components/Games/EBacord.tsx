@@ -23,18 +23,25 @@ const EBacord = () => {
     }
     @media (max-width: 885px) {
       .ebacordImage {
-        width: 200px;
-      }
-      .title {
-        font-size: 15px;
+        width: 300px;
       }
     }
     @media (max-width: 490px) {
       .ebacordImage {
-        width: 120px;
+        width: 240px;
       }
-      .title {
-        font-size: 12px;
+    }
+  `
+
+  const DivStyled = styled.div`
+    margin-top: 80px;
+    .titleComix {
+      text-align: center;
+    }
+
+    @media (max-width: 383px) {
+      .titleComix.title {
+        font-size: 14px !important;
       }
     }
   `
@@ -43,12 +50,8 @@ const EBacord = () => {
 
   
   return (
-    <div style={{
-      marginTop: '80px'
-    }}>
-      <h1 className='titleComix' style={{
-        textAlign: 'center'
-      }}>
+    <DivStyled>
+      <h1 className='titleComix title'>
         {idiom === 'ESP' ? 'PROXIMAMENTE' : 'COMMING SOON'}
       </h1>
       <ContainerStyled style={{
@@ -76,7 +79,7 @@ const EBacord = () => {
           <Image src={BacordLair} alt='Logo e-bacord' />
         </div>
       </ContainerStyled>
-    </div>
+    </DivStyled>
     
   )
 }
