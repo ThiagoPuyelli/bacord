@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import Image from 'next/image'
 import presentationFondo from '../public/img/presentationFondo.png'
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 const Presentation: NextPage = () => {
   const PresentationStyled = styled.section`
@@ -18,6 +19,7 @@ const Presentation: NextPage = () => {
       align-items: center;
       width: 300px;
       color: white;
+      margin-bottom: 20px;
       .readMore {
         margin-top: 20px;
         background: white;
@@ -38,6 +40,7 @@ const Presentation: NextPage = () => {
     .logoPresentation {
       width: 600px;
       margin-right: -100px;
+      transition: 300ms all;
       /*animation: updown 2s ease-in-out infinite alternate-reverse both;*/
     }
     .logoPresentation * {
@@ -98,21 +101,67 @@ const Presentation: NextPage = () => {
 
   `
 
+  let move = true
+  
   const runMaki = () => {
-    const logo: HTMLElement|null = document.querySelector('.logoPresentation')
-    const maki: HTMLElement|null = document.querySelector('.makiAnimation')
-    if (maki && logo) {
-      logo.style.animation = 'rotatePresentation 3.5s'
-      maki.style.animation = 'runMaki 3.5s'
-      if (window.innerWidth <= 602) {
-      maki.style.animation = 'runMakiResponsive 3.5s'
-      } else {
-        maki.style.animation = 'runMaki 3.5s'
+    if (move === true) {
+      move = false
+      const logo: HTMLElement|null = document.querySelector('.logoPresentation')
+      const maki: HTMLElement|null = document.querySelector('.makiAnimation')
+      if (maki && logo) {
+        let right = -240
+        let run = setInterval(() => {
+          maki.style.right = right + 'px'
+          right += 3
+          if (right === 51) {
+            moveAction()
+            makiJump()
+          }
+          if (right >= 550) {
+            maki.style.right = '-240px'
+            move = true
+            clearInterval(run)
+          }
+        }, 1)
+  
+        const moveAction = () => {
+          let rotate = 0
+          let state = 'start'
+          let logoMove = setInterval(() => {
+            logo.style.transform = 'rotateY(' + rotate + 'deg)'
+            if (state === 'start') {
+              rotate += 3
+            } else {
+              rotate -= 3
+            }
+            if (state === 'start' && rotate >= 360) {
+              state = 'final'
+            } else if (state === 'final' && rotate <= 0) {
+              clearInterval(logoMove)
+            }
+          }, 1)
+          return logoMove
+        }
+  
+        const makiJump = () => {
+          let marginTop = 40
+          let state = 'start'
+          let jump = setInterval(() => {
+            maki.style.marginTop = marginTop + 'px'
+            if (state === 'start') {
+              marginTop -= 1
+            } else {
+              marginTop += 1
+            }
+            if (state === 'start' && marginTop <= 0) {
+              state = 'final'
+            } else if (state === 'final' && marginTop >= 42) {
+              clearInterval(jump)
+            }
+          }, 1)
+          return jump
+        }
       }
-      setTimeout(() => {
-        logo.style.animation = 'none'
-        maki.style.animation = 'none'
-      }, 2000)
     }
   }
 
@@ -130,18 +179,9 @@ const Presentation: NextPage = () => {
           'We’re a gaming studio from Argentina, powered by our passion and hardwork. Founded by Gonzalo Cantarelli and Cristian Basoalto, alongside Ricardo Cuello and Matias Toyama. We make gambling-oriented mobile games, and in our side office “Seaside Bacord” we are dedicating ourselves to our biggest project to date “Maki, Paw of Fury”'
           } 
                     </p>
-          <button className='readMore'>
-            {
-              idiom === 'ESP'
-              ?
-              'LEER MÁS'
-              :
-              'READ MORE'
-            }
-          </button>
         </div>
-        <div className="contentImage" onClick={runMaki}>
-          <div className="logoPresentation">
+        <div className="contentImage" onMouseEnter={runMaki} onClick={runMaki}>
+          <div className="logoPresentation" >
             <Image src={presentationFondo} alt='fondo de home' />
           </div>
           <div className="contentMaki">
