@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Header from '../components/Header'
-import Head from 'next/head'
+//import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { ClipLoader } from 'react-spinners'
 

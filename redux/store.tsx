@@ -5,9 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import storage from 'redux-persist/lib/storage'
 import { env } from 'process'
 import { idiomReducer } from './idiom'
+import { logosReducer } from './logos'
 
 const root = combineReducers({
-    idiom: idiomReducer
+    idiom: idiomReducer,
+    logos: logosReducer
 })
 
 const configPersist = {

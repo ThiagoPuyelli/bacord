@@ -20,21 +20,6 @@ const Presentation: NextPage = () => {
       width: 300px;
       color: white;
       margin-bottom: 20px;
-      .readMore {
-        margin-top: 20px;
-        background: white;
-        color: #980a24;
-        padding: 15px;
-        border-radius: 40px;
-        border: none;
-        font-weight: bold;
-        width: 250px;
-        transition: 300ms all;
-        cursor: pointer;
-      }
-      .readMore:hover {
-        box-shadow: 0px 0px 3px #980a24 inset;
-      }
     }
 
     .logoPresentation {
@@ -45,9 +30,6 @@ const Presentation: NextPage = () => {
     }
     .logoPresentation * {
       transition: 800ms all;
-    }
-    .contentImage {
-      cursor: pointer;
     }
     @media (max-width: 1100px) {
       display: flex;

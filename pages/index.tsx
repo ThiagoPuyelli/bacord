@@ -29,11 +29,37 @@ import Azul from '../public/img/Team/Azul.png'
 import Hidalgo from '../public/img/Team/Hidalgo.jpg'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 const Home: NextPage = () => {
   const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
   
-  console.log('pepe')
+  useEffect(() => {
+    let scrollY = window.scrollY
+    window.addEventListener('scroll', () => {
+      const header: HTMLElement|null = document.querySelector('.header')
+      const logo: HTMLElement|null = document.querySelector('.logo')
+      const menu: HTMLElement|null = document.querySelector('.menu')
+      const buttonMenu: HTMLElement|null = document.querySelector('.menuButton')
+      if (header && logo && menu && buttonMenu) {
+        if (window.scrollY > 200) {
+          if (window.scrollY > scrollY) {
+            header.style.top = '-70px'
+            logo.style.top = '-77px'
+            menu.style.top = '-50px'
+            buttonMenu.style.transform = 'rotateZ(0deg)'
+            menu.style.height = '44px'
+          } else {
+            header.style.top = '0px'
+            logo.style.top = '-7px'
+            menu.style.top = '15px'
+          }
+        }
+        scrollY = window.scrollY
+      }
+    })
+  }, [])
+  
   return (
     <div>
       <Head>
@@ -256,7 +282,7 @@ const Home: NextPage = () => {
           ]
         }
       ]}/>
-      <Footer />
+    <Footer />
     </div>
   )
 }

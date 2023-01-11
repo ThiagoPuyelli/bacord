@@ -1,6 +1,4 @@
-import GauchoImg from '../../public/img/gaucho.png'
 import styled from '@emotion/styled'
-import Image from 'next/image'
 import { useState, useEffect } from "react"
 
 const Gaucho = () => {
@@ -22,7 +20,6 @@ const Gaucho = () => {
       height: 100%;
     }
   `
-  const [width, setWidth] = useState(0)
   
   const calculateHeight = () => {
     const gauchoDiv: HTMLElement|null = document.querySelector('.gaucho')
@@ -31,34 +28,17 @@ const Gaucho = () => {
     }
   }
 
- /* const calculateVideo = () => {
-    const gauchoVideo: HTMLElement|null = document.querySelector('.videoGaucho')
-    if (gauchoVideo) {
-      if (window.innerWidth > 0) {
-        gauchoVideo.style.paddingTop = (284 + window.innerWidth - 1366) + 'px'
-        gauchoVideo.style.paddingTop = (114 + window.innerWidth - 1366) + 'px'
-      }
-    }
-  }*/
-
   setTimeout(() => {
     calculateHeight()
   }, 100)
   
   useEffect(() => {
-    setWidth(window.innerWidth)
-    //calculateVideo()
     window.addEventListener('resize', () => {
         calculateHeight()
-        //calculateVideo()
     })
-    //return () => window.addEventListener('resize', calculateHeight)
   }, [])
   return (
     <GauchoStyled className='gaucho'>
-      {/*<div className="gauchoImg">
-        <Image src={GauchoImg} alt='Img gaucho' />
-  </div>*/}
       <div className="videoGaucho">
         <iframe src="https://www.youtube.com/embed/_xrsI9vJTzY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>

@@ -1,9 +1,5 @@
 import type { NextPage } from 'next'
 import styled from '@emotion/styled'
-import Image from 'next/image'
-import teamWork from '../public/img/teamwork.png'
-import creativity from '../public/img/creativity.png'
-import pasion from '../public/img/pasion.png'
 import { useSelector } from 'react-redux'
 
 const About: NextPage = () => {

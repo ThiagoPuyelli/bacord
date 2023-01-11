@@ -11,11 +11,9 @@ import linkedin from '../public/img/linkedin.png'
 import linkedinWhite from '../public/img/linkedinWhite.png'
 import logo from '../public/img/logo_bacord.png'
 import LinkNext from 'next/link'
-import { Link, animateScroll as scroll } from 'react-scroll'
-import * as Scroll from 'react-scroll'
+import { Link } from 'react-scroll'
 import buttonMenu from '../public/img/menu.png'
-import { useSelector, useDispatch } from 'react-redux'
-import { idiomAction } from '../redux/idiom'
+import { useSelector } from 'react-redux'
 import IdiomButton from './IdiomButton'
 
 const Header: NextPage = () => {
@@ -32,12 +30,14 @@ const Header: NextPage = () => {
     box-shadow: 0px 0px 4px #b60f25;
     z-index: 3;
     height: 70px;
+    transition: 300ms all;
     .left {
       display: flex;
       .logo {
         width: 80px;
         position: fixed;
         top: -7px;
+        transition: 300ms all;
       }
       .links {
         display: flex;
@@ -162,15 +162,15 @@ const Header: NextPage = () => {
   
   
   return (
-    <HeaderStyled>
+    <HeaderStyled className='header'>
       <div className="left">
         <div className="logo">
-          <Image src={logo} alt='Logo of bacord'/>
+          <Link to='presentation' smooth={true} offset={-70}><Image src={logo} alt='Logo of bacord'/></Link>
         </div>
         <ul className='links'>
-          <li className='link'><Link to='presentation' smooth={true} offset={-70}>
+          {/*<li className='link'><Link to='presentation' smooth={true} offset={-70}>
             {idiom === 'ESP' ? 'INICIO' : 'HOME' }
-            </Link></li>
+  </Link></li>*/}
           <li className='link'><Link to='about' smooth={true} offset={-100}>
             {idiom === 'ESP' ? 'NOSOTROS' : 'ABOUT US' }
             </Link></li>

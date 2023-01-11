@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import styled from '@emotion/styled'
 import Image from 'next/image'
-import makiBottom from '../../public/img/Maki.png'
 import { useSelector } from 'react-redux'
+import makiBottom from '../../public/img/Maki.png'
 
 const Maki: NextPage = () =>  {
   const MakiStyled = styled.div` 

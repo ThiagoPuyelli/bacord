@@ -66,6 +66,30 @@ a {
   background-repeat: no-repeat;
 }
 
+.Eggs {
+  background-image: url(../public/img/Eggs.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.move,
+.arrow {
+  background: transparent;
+  background-size: cover;
+}
+
+/*.base {
+  background-image: url(../public/img/joystickBase.png);
+}*/
+
+.move {
+  background-image: url(../public/img/joystickMove.png);
+}
+
+.arrow {
+  background-image: url(../public/img/arrow.png);
+}
+
 @keyframes updown {
   0% {
     transform: translateY(10px);

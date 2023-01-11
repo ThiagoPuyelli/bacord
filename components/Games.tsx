@@ -20,6 +20,7 @@ import RealPoll from '../public/img/LogosJuegos/13_RealPool_logo.png'
 import Adva from './Games/Adva'
 import EBacord from './Games/EBacord'
 import Gaucho from './Games/Gaucho'
+import Eggs from './Games/Eggs'
 
 const Games: NextPage = () => {
   
@@ -29,6 +30,7 @@ const Games: NextPage = () => {
       <Adva />
       <Pow />
       <Gaucho />
+      <Eggs />
       <Logos logos={[
         {
           image: Eggsplosion,

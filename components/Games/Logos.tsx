@@ -3,7 +3,7 @@ import Image from 'next/image'
 import buttonLeft from '../../public/img/left-arrow.png'
 import buttonRight from '../../public/img/right-arrow.png'
 import { useState, useEffect } from 'react'
-import { PieChart } from 'react-minimal-pie-chart'
+import Joystick from '../Joystick'
 
 type Logo = {
   image: any,
@@ -14,6 +14,8 @@ const Logos = ({logos}: { logos: Logo[]}) => {
   const LogosStyled = styled.div`
     overflow: hidden;
     height: 270px;
+    margin-top: 60px;
+    margin-bottom: 200px;
     .button {
       position: absolute;
       margin-top: 80px;
@@ -128,6 +130,7 @@ const Logos = ({logos}: { logos: Logo[]}) => {
   
   return (
     <LogosStyled>
+      <Joystick position={-260} />
       <div className="carousel">
         <button className="button left" onClick={() => moveImages('left')}>
           <Image src={buttonLeft} alt='Button Left' />

@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const nextVideos = require('next-videos')
 const nextConfig = {
   reactStrictMode: true,
   exportPathMap: async function (
@@ -12,7 +13,9 @@ const nextConfig = {
   images: {
     loader: 'akamai',
     path: '',
-  }
+  },
+  ...nextVideos()
 }
+
 
 module.exports = nextConfig
