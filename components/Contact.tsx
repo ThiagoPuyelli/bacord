@@ -180,8 +180,8 @@ const Contact: NextPage = () => {
       if (file) {
         formData.append('file', file, file.name)
       }
-      const sendFirst = await sendContactForm(formData, 'tatitogamer9@gmail.com')
-      const sendSecond = await sendContactForm(formData, 'thiagopuyelli@gmail.com')
+      const sendFirst = await sendContactForm(formData, 'bacordgames@gmail.com')
+      const sendSecond = await sendContactForm(formData, 'bacordgames@bacord.ar')
       if (sendFirst && sendSecond) {
         const success: HTMLElement|null = document.querySelector('.alerts .alert.success')
         if (success) {
