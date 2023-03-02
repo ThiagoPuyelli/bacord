@@ -130,7 +130,6 @@ const Logos = ({logos}: { logos: Logo[]}) => {
   
   return (
     <LogosStyled>
-      <Joystick position={-260} />
       <div className="carousel">
         <button className="button left" onClick={() => moveImages('left')}>
           <Image src={buttonLeft} alt='Button Left' />

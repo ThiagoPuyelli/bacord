@@ -104,6 +104,11 @@ const Team = ({members}: { members: Member[] } ) => {
             .contentImage.azu {
               margin-top: -33px;
             }
+            .contentImage.nicolas {
+              margin-top: -21px;
+              width: 180px;
+              margin-left: 7px;
+            }
           }
           .textMember {
             background: #b60f25;
@@ -144,12 +149,8 @@ const Team = ({members}: { members: Member[] } ) => {
       margin-top: -2px;
       svg {
         margin-bottom: -5px;
-        color: white !important;
       }
 
-      svg text {
-        color: white !important;
-      }
     }
   `
 
@@ -236,6 +237,8 @@ const Team = ({members}: { members: Member[] } ) => {
                   return 'contentImage nadina'
                 case 'Azu':
                   return 'contentImage azu'
+                case 'Nicolas Suarez':
+                  return 'contentImage nicolas'
                 default:
                 }
               return 'contentImage'
@@ -261,8 +264,8 @@ const Team = ({members}: { members: Member[] } ) => {
                   label={(data) => data.dataEntry.title}
                   labelStyle={{
                     fontSize: 7,
-                    color: 'white !important',
-                    fontFamily: 'noto'
+                    fontFamily: 'noto',
+                    color: 'white !important'
                   }}
                      />
                 </div>

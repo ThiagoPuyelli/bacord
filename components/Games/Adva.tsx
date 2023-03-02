@@ -18,9 +18,6 @@ const Adva = () => {
       color: var(--title);
       letter-spacing: 2px;
     }
-    .linkAdva {
-      transition: 300ms all;
-    }
     .linkAdva a {
       background: -webkit-linear-gradient(138deg, #ff8800 0%, #fe024d 48%, #8531c4 100%);
       padding: 10px;

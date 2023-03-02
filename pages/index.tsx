@@ -27,6 +27,7 @@ import Mario from '../public/img/Team/Mario.jpg'
 import Nadiko from '../public/img/Team/Nadiko.jpeg'
 import Azul from '../public/img/Team/Azul.png'
 import Hidalgo from '../public/img/Team/Hidalgo.jpg'
+import Faren from '../public/img/Team/Faren.jpg'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
@@ -279,6 +280,16 @@ const Home: NextPage = () => {
             { title: idiom === 'ESP' ? 'Humor' : 'Humor', key:'Humor', value: 60, color: '#FD9A28' },
             { title: idiom === 'ESP' ? 'Conflicto existencial' : 'Existencial conflict', key:'Existencial conflict', value: 39.5, color: '#FF5126' },
             { title: idiom === 'ESP' ? 'Paciencia' : 'Patient', key:'Patient', value: 0.5, color: '#d50000' }
+          ]
+        },
+        {
+          image: Faren,
+          name: 'Nicolas Suarez',
+          rol: idiom === 'ESP' ? 'Project manager' : 'Project manager',
+          data: [
+            { title: idiom === 'ESP' ? 'Intensidad' : 'intensity', key:'intensity', value: 45, color: '#FD9A28' },
+            { title: idiom === 'ESP' ? 'TDAH' : 'TDAH', key:'TDAH', value: 35, color: '#FF5126' },
+            { title: idiom === 'ESP' ? 'Fernet' : 'Fernet', key:'Fernet', value: 15, color: '#d50000' }
           ]
         }
       ]}/>

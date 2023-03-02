@@ -38,6 +38,7 @@ const Header: NextPage = () => {
         position: fixed;
         top: -7px;
         transition: 300ms all;
+        cursor: pointer;
       }
       .links {
         display: flex;

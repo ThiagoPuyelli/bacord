@@ -14,6 +14,10 @@ const nextConfig = {
     loader: 'akamai',
     path: '',
   },
+  env: {
+    EMAIL: 'thiagopuyelli@gmail.com',
+    EMAIL_PASS: 'xmqqcsgdticmgejj'
+  },
   ...nextVideos()
 }
 
