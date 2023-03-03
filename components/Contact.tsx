@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { useSelector } from 'react-redux'
 import { sendContactForm } from '../lib/api'
 import { ClipLoader } from 'react-spinners'
+import emailjs from '@emailjs/browser'
 
 const Contact: NextPage = () => {
   const ContactStyled = styled.section`
@@ -153,10 +154,29 @@ const Contact: NextPage = () => {
       }
     }
   `
-  
-  let file: any
 
   const submitForm = async (data: any) => {
+    data.preventDefault()
+    const name: HTMLInputElement|null = document.querySelector('.inputContact.name')
+    const email: HTMLInputElement|null = document.querySelector('.inputContact.email')
+    const message: HTMLInputElement|null = document.querySelector('.message')
+    if (name && email && message && (name.value !== '' || email.value !== '' || message.value !== '')) {
+      setLoading(true)
+      const firstMail = await emailjs.sendForm('service_owdnfby', 'template_y55xkuq', data.target, 'CqWIk1GaVBVy2E-h6')
+      const secondMail = await emailjs.sendForm('service_1p97hvn', 'template_13zpr8w', data.target, 'AL9uUGVCxMXp24hNL')
+      if (firstMail.text === 'OK' && secondMail.text === 'OK') {
+        showAlert('success')
+      } else {
+        showAlert('error')
+      }
+    } else {
+      showAlert('error')
+    }
+    emptyInputs([name, email, message])
+    setLoading(false)
+  }  
+
+  /*const submitForm = async (data: any) => {
     data.preventDefault()
     const name: HTMLInputElement|null = document.querySelector('.inputContact.name')
     const email: HTMLInputElement|null = document.querySelector('.inputContact.email')
@@ -217,10 +237,25 @@ const Contact: NextPage = () => {
       inputFile.value = ''
       file = undefined
     }
-  }
+  }*/
 
-  const showError = () => {
-    const error: HTMLElement|null = document.querySelector('.alerts .alert.error')
+  const setLoading = (load: boolean) => {
+    const button: HTMLElement|null = document.querySelector('.submitContact')
+    const effect: HTMLElement|null = document.querySelector('.loadingSend')
+    if (button && effect) {
+      if (load) {
+        button.setAttribute('disabled', '')
+      } else {
+        button.removeAttribute('disabled')
+      }
+      button.style.opacity = load ? '0.5' : '1'
+      button.style.cursor = load ? 'auto' : 'pointer'
+      effect.style.display = load ? 'block' : 'none'
+    }
+  }
+  
+  const showAlert = (alert: 'error'|'success') => {
+    const error: HTMLElement|null = document.querySelector('.alerts .alert.' + alert)
     if (error) {
       error.style.display = 'block'
       setTimeout(() => {
@@ -229,13 +264,15 @@ const Contact: NextPage = () => {
     }
   }
 
-  const emptyInputs = () => {
-    
+  const emptyInputs = (inputs: HTMLInputElement[]) => {
+    for (let i in inputs) {
+      inputs[i].value = ''
+    }
   }
 
-  const changeFile = (e: any) => {
+  /*const changeFile = (e: any) => {
     file = e.target.files[0]
-  }
+  }*/
 
   const { idiom } = useSelector((state: { idiom: { idiom: string } }) => state.idiom)
 
@@ -260,10 +297,6 @@ const Contact: NextPage = () => {
           } className='inputContact email' style={{marginTop: '20px'}} />
         </div>
         <textarea className='message' placeholder={idiom === 'ESP' ? 'Mensaje' : 'Message'}></textarea>
-        <div className="divFile">
-          <label className='titleComix labelFile'>Deja un archivo (opcional)</label>
-          <input type="file" className='inputFile' onChange={(e) => changeFile(e)} />
-        </div>
         <div className="alerts">
           <div className="alert error">
             Error al enviar mail
